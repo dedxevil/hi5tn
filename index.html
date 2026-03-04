@@ -1,66 +1,97 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HI5 Technet</title>
-    <meta name="description" content="HI5 Technet: Adaptive AI Solutions, Enterprise Machine Learning, and AI Process Automation for business transformation.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              'primary-brand': '#26d48c',
-              'secondary-brand-blue': '#1842b6',
-              'background-dark': '#0A192F',
-              'text-light': '#E2E8F0',
-              'text-muted': '#94A3B8',
-              'card-bg': 'rgba(10, 25, 47, 0.7)',
-              'glass-border': 'rgba(255, 255, 255, 0.1)',
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/hi5tn/favicon.svg">
+
+  <!-- Primary Meta Tags -->
+  <title>HI5 Technet | Premium AI, Web & Mobile App Development Company</title>
+  <meta name="title" content="HI5 Technet | Premium AI, Web & Mobile App Development Company">
+  <meta name="description"
+    content="HI5 Technet is a leading technology agency specializing in Generative AI, Custom LLM Development, Enterprise Machine Learning, and premium Web & Mobile Application Development.">
+  <meta name="keywords"
+    content="AI development company, Web development, Mobile App development, Generative AI, Custom LLM, Enterprise Machine Learning, AI Process Automation, React, Flutter, Node.js, Nextjs, HI5 Technet, Technology Agency">
+  <meta name="author" content="HI5 Technet">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hi5technet.com/">
+  <meta property="og:title" content="HI5 Technet | Premium AI, Web & Mobile App Development Company">
+  <meta property="og:description"
+    content="Transforming businesses with bespoke AI solutions, responsive web applications, and robust mobile applications for iOS & Android. Partner with HI5 Technet for digital excellence.">
+  <meta property="og:image" content="https://hi5technet.com/hero-bg.jpg">
+  <meta property="og:site_name" content="HI5 Technet">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://hi5technet.com/">
+  <meta property="twitter:title" content="HI5 Technet | Premium AI, Web & Mobile App Development Company">
+  <meta property="twitter:description"
+    content="Transforming businesses with bespoke AI solutions, responsive web applications, and robust mobile applications for iOS & Android. Partner with HI5 Technet for digital excellence.">
+  <meta property="twitter:image" content="https://hi5technet.com/hero-bg.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'primary-brand': '#26d48c',
+            'secondary-brand-blue': '#1842b6',
+            'background-dark': '#0A192F',
+            'text-light': '#E2E8F0',
+            'text-muted': '#94A3B8',
+            'card-bg': 'rgba(10, 25, 47, 0.7)',
+            'glass-border': 'rgba(255, 255, 255, 0.1)',
+          },
+          fontFamily: {
+            sans: ['Sora', 'sans-serif'],
+          },
+          keyframes: {
+            'pulse-light': {
+              '0%, 100%': { boxShadow: '0 0 10px rgba(38, 212, 140, 0.4), 0 0 20px rgba(38, 212, 140, 0.2)' },
+              '50%': { boxShadow: '0 0 20px rgba(38, 212, 140, 0.8), 0 0 40px rgba(38, 212, 140, 0.4)' },
             },
-            fontFamily: {
-              sans: ['Sora', 'sans-serif'],
+            'gradient-pulse': {
+              '0%, 100%': { backgroundPosition: '0% 50%' },
+              '50%': { backgroundPosition: '100% 50%' },
             },
-            keyframes: {
-                'pulse-light': {
-                    '0%, 100%': { boxShadow: '0 0 10px rgba(38, 212, 140, 0.4), 0 0 20px rgba(38, 212, 140, 0.2)' },
-                    '50%': { boxShadow: '0 0 20px rgba(38, 212, 140, 0.8), 0 0 40px rgba(38, 212, 140, 0.4)' },
-                },
-                'gradient-pulse': {
-                    '0%, 100%': { backgroundPosition: '0% 50%' },
-                    '50%': { backgroundPosition: '100% 50%' },
-                },
-                'fade-in-up': {
-                  '0%': { opacity: '0', transform: 'translateY(20px)' },
-                  '100%': { opacity: '1', transform: 'translateY(0)' },
-                },
-                'marquee': {
-                  '0%': { transform: 'translateX(0%)' },
-                  '100%': { transform: 'translateX(-100%)' },
-                },
-                'dot-glow': {
-                  '0%, 100%': { filter: 'drop-shadow(0 0 4px rgba(38, 212, 140, 0.6))' },
-                  '50%': { filter: 'drop-shadow(0 0 8px rgba(24, 66, 182, 0.8))' },
-                }
+            'fade-in-up': {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
             },
-            animation: {
-                'pulse-light': 'pulse-light 2s infinite ease-in-out',
-                'gradient-pulse': 'gradient-pulse 4s ease infinite',
-                'fade-in-up': 'fade-in-up 0.6s ease-out forwards',
-                'marquee': 'marquee 30s linear infinite',
-                'dot-glow': 'dot-glow 3s ease-in-out infinite alternate',
+            'marquee': {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-100%)' },
+            },
+            'dot-glow': {
+              '0%, 100%': { filter: 'drop-shadow(0 0 4px rgba(38, 212, 140, 0.6))' },
+              '50%': { filter: 'drop-shadow(0 0 8px rgba(24, 66, 182, 0.8))' },
             }
+          },
+          animation: {
+            'pulse-light': 'pulse-light 2s infinite ease-in-out',
+            'gradient-pulse': 'gradient-pulse 4s ease infinite',
+            'fade-in-up': 'fade-in-up 0.6s ease-out forwards',
+            'marquee': 'marquee 30s linear infinite',
+            'dot-glow': 'dot-glow 3s ease-in-out infinite alternate',
           }
         }
       }
-    </script>
-  <script type="module" crossorigin src="/hi5tn/assets/index-CIMpux2y.js"></script>
+    }
+  </script>
+  <script type="module" crossorigin src="/hi5tn/assets/index-D0Ma65vd.js"></script>
 </head>
+
 <body class="bg-background-dark text-text-light font-sans antialiased">
-    <div id="root"></div>
+  <div id="root"></div>
 </body>
+
 </html>
