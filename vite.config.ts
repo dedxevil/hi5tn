@@ -19,6 +19,9 @@ export default defineConfig(({ mode }) => {
           '@': path.resolve(__dirname, '.'),
         }
       },
-      base: '/hi5technetai/'
+      base: '/hi5tn/',
+      build: {
+        outDir: 'dist'
+      }
     };
 });

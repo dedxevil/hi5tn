@@ -4,8 +4,10 @@ import { Helmet } from 'react-helmet-async';
 
 import SectionHeader from '../components/ui/SectionHeader';
 import AboutSection from '../components/AboutSection';
+import LeadershipSection from '../components/LeadershipSection';
 import Card from '../components/ui/Card';
 import Button from '../components/ui/Button';
+import SubPageHero from '../components/SubPageHero';
 
 const CareersForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -149,7 +151,14 @@ const AboutUsPage: React.FC = () => {
         <meta name="description" content="Learn about HI5 Technet's mission, values, and expert team dedicated to building cutting-edge Generative AI Solutions and Enterprise Machine Learning platforms. Explore career opportunities." />
         <link rel="canonical" href="https://yourwebsite.com/about-us" />
       </Helmet>
-      <AboutSection />
+      <SubPageHero
+        page="about"
+        label="Who We Are"
+        title="Architecting Your AI-Powered Future"
+        description="We are a technology partner committed to building practical Generative AI Solutions and Enterprise Machine Learning platforms."
+      />
+      <AboutSection skipHeader />
+      <LeadershipSection />
       <CareersForm />
     </>
   );

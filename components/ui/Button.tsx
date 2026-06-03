@@ -8,6 +8,7 @@ type CommonProps = {
   size?: 'sm' | 'md' | 'lg';
   children: React.ReactNode;
   className?: string;
+  showGoldenShine?: boolean;
 };
 
 // Props for rendering as a React Router Link
@@ -39,9 +40,10 @@ const Button: React.FC<ButtonProps> = ({
   className = '',
   to,
   href,
+  showGoldenShine = false,
   ...props
 }) => {
-  let baseStyles = 'font-medium rounded-full transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-opacity-75 relative overflow-hidden group';
+  let baseStyles = 'font-medium rounded-full transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-opacity-75 relative overflow-hidden group inline-flex items-center justify-center';
   let sizeStyles = '';
   let variantStyles = '';
 
@@ -73,7 +75,8 @@ const Button: React.FC<ButtonProps> = ({
 
   const buttonContent = (
     <>
-      <span className="relative z-10">{children}</span>
+      {showGoldenShine && <span className="golden-shine-line"></span>}
+      <span className="relative z-10 flex items-center gap-2 whitespace-nowrap">{children}</span>
       {/* Updated gradient to use new green and blue for hover effect */}
       <span className="absolute inset-0 bg-gradient-to-r from-primary-brand to-secondary-brand-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out mix-blend-lighten pointer-events-none"></span>
     </>

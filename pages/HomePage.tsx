@@ -8,7 +8,8 @@ import ProblemSolverSection from '../components/ProblemSolverSection';
 import IndustriesSection from '../components/IndustriesSection';
 import ProcessSection from '../components/ProcessSection';
 import BenefitsSection from '../components/BenefitsSection';
-import TrustSection from '../components/TrustSection';
+import AIProductsSection from '../components/AIProductsSection';
+
 import CtaBanner from '../components/CtaBanner';
 
 const HomePage: React.FC = () => {
@@ -20,12 +21,12 @@ const HomePage: React.FC = () => {
         <link rel="canonical" href="https://yourwebsite.com/" />
       </Helmet>
       <HeroSection />
+      <AIProductsSection />
       <ClientMarqueeSection />
       <ProblemSolverSection />
       <IndustriesSection />
       <ProcessSection />
       <BenefitsSection />
-      <TrustSection />
       <CtaBanner />
     </>
   );

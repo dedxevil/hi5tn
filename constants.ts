@@ -1,13 +1,13 @@
 
 import React from 'react';
 
-// Navigation Links
 export const NAV_LINKS = [
-  { name: 'AI Solutions', to: '/ai-solutions' },
-  // { name: 'Case Studies', to: '/case-studies' }, // Case Studies not needed
-  { name: 'Intelligence Hub', to: '/intelligence-hub' },
-  { name: 'About Us', to: '/about-us' },
-  // { name: 'Contact', to: '#contact' }, // Contact moved to a dedicated button in Navbar
+  { name: 'Home', to: '/' },
+  { name: 'About us', to: '/about-us' },
+  { name: 'Services', to: '/services' },
+  { name: 'Projects', to: '/projects' },
+  { name: 'Testimonials', to: '/testimonials' },
+  { name: 'AI Products', to: '/ai-products' },
 ];
 
 // Problem Solver Cards
@@ -166,9 +166,9 @@ export const BENEFITS = [
 
 // Trust Testimonials
 export const TESTIMONIALS = [
-  '“HI5 Technet engineered a custom Generative AI solution that transformed our customer support, reducing ticket resolution times by 40%.”',
-  '“Their Enterprise Machine Learning experts integrated our disparate data sources into a single, intelligent dashboard, providing real-time strategic insights.”',
-  '“We successfully implemented AI Process Automation for our legacy ERP, achieving significant operational efficiencies without costly rip-and-replace.”',
+  '“Honestly, the team at HI5 Technet completely changed how we handle customer support. The custom AI they built for us actually works, and our team is spending way less time on repetitive tickets now.”',
+  '“We had data scattered everywhere and couldn\'t make sense of it. HI5 came in and brought it all together into one dashboard that just makes sense. It\'s been an absolute game changer for our daily decision-making.”',
+  '“I was really worried about updating our old ERP system, but the AI automation HI5 Technet put in place saved us from a massive overhaul. Everything just runs smoother now, and we didn\'t have to start from scratch.”',
 ];
 
 // Blog Articles
@@ -198,28 +198,32 @@ export const BLOG_ARTICLES = [
 // Footer Links
 export const FOOTER_LINKS = [
   {
-    category: 'Solutions',
+    category: 'Company',
     links: [
-      { name: 'AI Solutions', to: '/ai-solutions' },
-      { name: 'Strategic AI Consulting', to: '/ai-solutions' },
-      { name: 'Generative AI & LLMs', to: '/ai-solutions' },
-      { name: 'AI Automation', to: '/ai-solutions' },
+      { name: 'Home', to: '/' },
+      { name: 'About us', to: '/about-us' },
+      { name: 'Projects', to: '/projects' },
+      { name: 'Testimonials', to: '/testimonials' },
     ],
   },
   {
-    category: 'Company',
+    category: 'Resources',
     links: [
-      { name: 'About Us', to: '/about-us' },
-      // { name: 'Case Studies', to: '/case-studies' }, // Case Studies not needed
-      { name: 'Intelligence Hub', to: '/intelligence-hub' },
-      { name: 'Contact', to: '/contact' },
+      { name: 'Services', to: '/services' },
+      { name: 'AI Products', to: '/ai-products' },
     ],
   },
   {
     category: 'Legal',
     links: [
-      { name: 'Privacy Policy', to: '#' },
-      { name: 'Terms of Use', to: '#' },
+      { name: 'Contact', to: '/contact' },
     ],
   },
+];
+
+// ISO Countries List
+export const COUNTRIES = [
+  "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan",
+  "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Côte d'Ivoire", "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo (Congo-Brazzaville)", "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czechia (Czech Republic)",
+  "Democratic Republic of the Congo", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini (fmr. Swaziland)", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Holy See", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar (formerly Burma)", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Korea", "North Macedonia", "Norway", "Oman", "Pakistan", "Palau", "Palestine State", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Korea", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria", "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States of America", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"
 ];

@@ -2,7 +2,7 @@
 import React from 'react';
 
 const CLIENT_LOGOS = [
-  'Sintra AI', 'Silambu.us', 'Aram Traders', 'Best Direct Finance', 'Health and Wellness Coach - Premasekar' , 'PartiM', 'Borned Eagle', 'SpeedSew', 'Pro Legends Kitchen'
+  'Silambu.us', 'Aram Traders', 'Best Direct Finance', 'PartiM', 'Borned Eagle'
 ];
 
 const ClientMarqueeSection: React.FC = () => {
@@ -15,7 +15,7 @@ const ClientMarqueeSection: React.FC = () => {
         <p className="text-sm text-text-muted opacity-80">Trusted by leading enterprises worldwide</p>
       </div>
       <div className="relative flex overflow-x-hidden">
-        <div className="animate-marquee whitespace-nowrap flex">
+        <div className="animate-marquee whitespace-nowrap flex" style={{ animationDuration: 'var(--marquee-duration, 30s)' }}>
           {marqueeLogos.map((logo, index) => (
             <span key={index} className="text-3xl lg:text-4xl font-semibold text-text-muted opacity-60 mx-8 flex-shrink-0">
               {logo}
@@ -23,7 +23,7 @@ const ClientMarqueeSection: React.FC = () => {
           ))}
         </div>
         {/* We use a duplicated div for the seamless effect */}
-        <div className="animate-marquee whitespace-nowrap flex" aria-hidden="true">
+        <div className="animate-marquee whitespace-nowrap flex" aria-hidden="true" style={{ animationDuration: 'var(--marquee-duration, 30s)' }}>
           {marqueeLogos.map((logo, index) => (
             <span key={index} className="text-3xl lg:text-4xl font-semibold text-text-muted opacity-60 mx-8 flex-shrink-0">
               {logo}

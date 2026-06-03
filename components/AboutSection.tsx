@@ -117,16 +117,18 @@ const FounderMindsetNode = () => {
   );
 };
 
-const AboutSection: React.FC = () => {
+const AboutSection: React.FC<{ skipHeader?: boolean }> = ({ skipHeader }) => {
   return (
-    <section id="about-us" className="py-20 md:py-28 bg-background-dark relative overflow-hidden">
+    <section id="about-us" className={`${skipHeader ? 'pb-20 md:pb-28' : 'pt-40 md:pt-44 pb-20 md:pb-28'} bg-background-dark relative overflow-hidden`}>
       <div className="container mx-auto px-6 text-center lg:text-left">
-        <SectionHeader
-          label="Who We Are"
-          title="HI5 Technet: Architecting Your AI-Powered Future"
-          description="We are a technology partner committed to building practical Generative AI Solutions and Enterprise Machine Learning platforms, grounded in robust software engineering. Our mission is to transform raw data into intelligent, real-world business advantages."
-          className="mb-16"
-        />
+        {!skipHeader && (
+          <SectionHeader
+            label="Who We Are"
+            title="HI5 Technet: Architecting Your AI-Powered Future"
+            description="We are a technology partner committed to building practical Generative AI Solutions and Enterprise Machine Learning platforms, grounded in robust software engineering. Our mission is to transform raw data into intelligent, real-world business advantages."
+            className="mb-16"
+          />
+        )}
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
@@ -137,9 +139,22 @@ const AboutSection: React.FC = () => {
             <p className="text-lg text-text-muted leading-relaxed mb-8">
               We pride ourselves on our agile methodology and our ability to seamlessly integrate cutting-edge <strong className="text-primary-brand">AI Process Automation</strong> into your existing infrastructure, ensuring minimal disruption and maximum impact. Partner with us to turn your AI aspirations into tangible, measurable results.
             </p>
-            <Button to="/contact" className="inline-flex items-center text-primary-brand hover:text-secondary-brand-blue font-semibold text-lg group">
+            <div className="mb-8 p-6 bg-white/5 border border-white/10 rounded-2xl">
+              <h4 className="text-sm uppercase tracking-widest text-primary-brand font-bold mb-4">Leadership</h4>
+              <div className="flex flex-col sm:flex-row gap-8">
+                <div>
+                  <p className="text-xl font-bold text-white">Gowtham</p>
+                  <p className="text-sm text-text-muted">Founder</p>
+                </div>
+                <div>
+                  <p className="text-xl font-bold text-white">Jagadeesh</p>
+                  <p className="text-sm text-text-muted">Co Founder</p>
+                </div>
+              </div>
+            </div>
+            <Button to="/contact" className="font-semibold text-lg group">
               Get to know us better
-              <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
               </svg>
             </Button>

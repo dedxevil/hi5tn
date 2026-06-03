@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextGen Flutter Coders Camp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #00c6ff, #0072ff, #00c6ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        .card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .phase-card {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .phase-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+            transform: rotate(45deg);
+            z-index: -1;
+            transition: all 0.8s ease;
+        }
+
+        .phase-card:hover::before {
+            animation: shine 1.5s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                top: -50%;
+                left: -50%;
+            }
+
+            100% {
+                top: 150%;
+                left: 150%;
+            }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .tool-card {
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .tool-card:hover {
+            transform: rotateY(10deg);
+        }
+
+        .timeline-item {
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: linear-gradient(to bottom, #00c6ff, #0072ff, #00c6ff);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -9px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            z-index: 2;
+        }
+
+        .timeline-dot::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #0f172a;
+        }
+
+        .hero-shape {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(135deg, rgba(0, 198, 255, 0.2), rgba(0, 114, 255, 0.2));
+            border-radius: 32% 68% 65% 35% / 41% 44% 56% 59%;
+            animation: morph 15s linear infinite alternate;
+            z-index: -1;
+        }
+
+        @keyframes morph {
+            0% {
+                border-radius: 32% 68% 65% 35% / 41% 44% 56% 59%;
+            }
+
+            25% {
+                border-radius: 40% 60% 70% 30% / 47% 62% 38% 53%;
+            }
+
+            50% {
+                border-radius: 52% 48% 43% 57% / 38% 32% 68% 62%;
+            }
+
+            75% {
+                border-radius: 36% 64% 64% 36% / 64% 39% 61% 36%;
+            }
+
+            100% {
+                border-radius: 40% 60% 43% 57% / 52% 32% 68% 48%;
+            }
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #0072ff, #00c6ff);
+            z-index: -1;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .btn-primary:hover::after {
+            opacity: 1;
+        }
+
+        .scroll-down {
+            animation: scrollDown 2s infinite;
+        }
+
+        @keyframes scrollDown {
+            0% {
+                transform: translateY(0);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: translateY(10px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 0.8;
+            }
+        }
+
+        .phase-number {
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            font-size: 120px;
+            font-weight: 700;
+            opacity: 0.1;
+            color: #00c6ff;
+        }
+
+        .project-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            background-image: linear-gradient(#1e293b, #1e293b),
+                linear-gradient(90deg, #00c6ff, #0072ff);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .trainer-img-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 50%;
+            border: 3px solid #00c6ff;
+        }
+
+        .trainer-img-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .trainer-img-container:hover::before {
+            left: 100%;
+        }
+
+        .portfolio-item {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .portfolio-item img {
+            transition: all 0.5s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 1s ease-in forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .bg-gradient-custom {
+            background: linear-gradient(135deg, #0b1121, #172a46);
+        }
+
+        .expertise-card {
+            border-left: 4px solid #00c6ff;
+            transition: all 0.3s ease;
+        }
+
+        .expertise-card:hover {
+            transform: translateX(5px);
+            border-left-color: #0072ff;
+        }
+
+        @keyframes gradient-x {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .animate-gradient-x {
+            animation: gradient-x 6s ease infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-slate-900 bg-opacity-80 backdrop-blur-md shadow-md text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            <div class="font-bold text-xl">NextGen Camp</div>
+            <div class="space-x-4 text-sm sm:text-base">
+                <a href="#tools" class="hover:text-cyan-400">Tools</a>
+                <a href="#projects" class="hover:text-cyan-400">Projects</a>
+                <a href="#curriculum" class="hover:text-cyan-400">Curriculum</a>
+                <a href="#trainer" class="hover:text-cyan-400">Trainer</a>
+                <a href="#portfolio" class="hover:text-cyan-400">Portfolio</a>
+                <!-- <a href="#register" class="hover:text-cyan-400 font-semibold">Register</a> -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-24 overflow-hidden">
+        <div class="hero-shape"></div>
+        <div class="hero-shape" style="left: 0; right: auto; opacity: 0.5; animation-delay: 2s;"></div>
+
+        <div class="max-w-7xl mx-auto text-center relative z-10">
+            <div class="mb-8 floating">
+                <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 256 256" class="mx-auto">
+                    <path fill="#00c6ff"
+                        d="M128 0C57.307 0 0 57.307 0 128s57.307 128 128 128s128-57.307 128-128S198.693 0 128 0z" />
+                    <path fill="#0f172a"
+                        d="M128 40.5c-48.874 0-88.5 39.626-88.5 88.5s39.626 88.5 88.5 88.5s88.5-39.626 88.5-88.5S176.874 40.5 128 40.5z" />
+                    <path fill="#00c6ff"
+                        d="M128 63c-36.45 0-66 29.55-66 66s29.55 66 66 66s66-29.55 66-66s-29.55-66-66-66zm-8.25 104.5L86.5 134.25L98.75 122l21 21l37.5-37.5l12.25 12.25l-49.75 49.75z" />
+                </svg>
+            </div>
+
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                <span class="gradient-text">NextGen</span> Flutter Coders Camp
+            </h1>
+
+            <p class="text-xl md:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto">
+                Master Flutter development in just 20 days with our comprehensive bootcamp combining Flutter Flow, VS
+                Code, and ChatGPT.
+            </p>
+
+            <div class="pulse mb-12">
+                <span
+                    class="bg-gradient-to-r from-blue-400 to-cyan-400 text-white text-2xl font-bold py-3 px-6 rounded-full inline-block">
+                    $150 Only
+                </span>
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-6 mb-16">
+                <div class="card p-4 rounded-lg">
+                    <div class="text-xl font-semibold mb-2">Start Date</div>
+                    <div class="text-3xl font-bold gradient-text">June 16th, 2025</div>
+                </div>
+                <div class="card p-4 rounded-lg">
+                    <div class="text-xl font-semibold mb-2">End Date</div>
+                    <div class="text-3xl font-bold gradient-text">July 17th, 2025</div>
+                </div>
+                <div class="card p-4 rounded-lg">
+                    <div class="text-xl font-semibold mb-2">Duration</div>
+                    <div class="text-3xl font-bold gradient-text">20 Days</div>
+                </div>
+            </div>
+
+            <!-- Floating Register Now Button -->
+            <div id="register" class="fixed bottom-4 right-4 z-50">
+                <a href="https://go.trimy.in/nextgen" target="_blank" rel="noopener noreferrer">
+                    <button
+                        class="btn-primary text-white font-bold py-3 px-6 rounded-full text-lg shadow-lg animate-bounce">
+                        Register Now
+                    </button>
+                </a>
+            </div>
+
+
+
+            <!-- <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 scroll-down">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+                </svg>
+            </div> -->
+        </div>
+    </div>
+
+    <!-- Tools Section -->
+    <div id="tools" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-900 to-slate-800">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold mb-16 text-center">
+                <span class="gradient-text">Tools</span> You'll Master
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="tool-card bg-slate-800 rounded-xl p-6 shadow-lg border border-slate-700">
+                    <div class="h-16 w-16 mx-auto mb-6 bg-blue-500 rounded-lg flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="white" viewBox="0 0 16 16">
+                            <path
+                                d="M5.52.359A.5.5 0 0 1 6 0h4a.5.5 0 0 1 .488.359l1.5 5.5a.5.5 0 0 1-.488.641H6.5a.5.5 0 0 1-.488-.641l1.5-5.5zM8 1.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 1 0V2a.5.5 0 0 0-.5-.5z" />
+                            <path d="M6.5 8a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 1 0v-3a.5.5 0 0 0-.5-.5z" />
+                            <path d="M9.5 8a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 1 0v-3a.5.5 0 0 0-.5-.5z" />
+                            <path
+                                d="M1.61 5.687A.5.5 0 0 1 2 5.5h12a.5.5 0 0 1 .488.587l-1.5 6A.5.5 0 0 1 12.5 12h-9a.5.5 0 0 1-.488-.413l-1.5-6a.5.5 0 0 1 .098-.587z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-3">Flutter Flow</h3>
+                    <p class="text-gray-400 text-center">Low-code platform for rapid Flutter app development</p>
+                </div>
+
+                <div class="tool-card bg-slate-800 rounded-xl p-6 shadow-lg border border-slate-700">
+                    <div class="h-16 w-16 mx-auto mb-6 bg-green-500 rounded-lg flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="white" viewBox="0 0 16 16">
+                            <path
+                                d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                            <path
+                                d="M6.854 4.646a.5.5 0 0 1 0 .708L4.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0zm2.292 0a.5.5 0 0 0 0 .708L11.793 8l-2.647 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-3">VS Code</h3>
+                    <p class="text-gray-400 text-center">Professional IDE for Flutter development</p>
+                </div>
+
+                <div class="tool-card bg-slate-800 rounded-xl p-6 shadow-lg border border-slate-700">
+                    <div class="h-16 w-16 mx-auto mb-6 bg-purple-500 rounded-lg flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="white" viewBox="0 0 16 16">
+                            <path
+                                d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                            <path
+                                d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-3">ChatGPT</h3>
+                    <p class="text-gray-400 text-center">AI assistant for code generation and problem-solving</p>
+                </div>
+
+                <div class="tool-card bg-slate-800 rounded-xl p-6 shadow-lg border border-slate-700">
+                    <div class="h-16 w-16 mx-auto mb-6 bg-orange-500 rounded-lg flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="white" viewBox="0 0 16 16">
+                            <path
+                                d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z" />
+                            <path
+                                d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-3">Firebase</h3>
+                    <p class="text-gray-400 text-center">Backend platform for authentication and database</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Themes Section -->
+    <div id="projects" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-800 to-slate-900">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold mb-16 text-center">
+                <span class="gradient-text">Project</span> Themes
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="project-card rounded-xl p-6 shadow-lg">
+                    <div class="h-14 w-14 mx-auto mb-4 bg-cyan-500 rounded-full flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 16 16">
+                            <path
+                                d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-2">Personal Journal App</h3>
+                    <p class="text-gray-400 text-center text-sm">Create a digital diary to record thoughts and memories
+                    </p>
+                </div>
+
+                <div class="project-card rounded-xl p-6 shadow-lg">
+                    <div class="h-14 w-14 mx-auto mb-4 bg-blue-500 rounded-full flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 16 16">
+                            <path
+                                d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+                            <path
+                                d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-2">To-Do List App</h3>
+                    <p class="text-gray-400 text-center text-sm">Organize tasks and track your productivity</p>
+                </div>
+
+                <div class="project-card rounded-xl p-6 shadow-lg">
+                    <div class="h-14 w-14 mx-auto mb-4 bg-indigo-500 rounded-full flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 16 16">
+                            <path
+                                d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z" />
+                            <path
+                                d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-2">School News App</h3>
+                    <p class="text-gray-400 text-center text-sm">Stay updated with school announcements and events</p>
+                </div>
+
+                <div class="project-card rounded-xl p-6 shadow-lg">
+                    <div class="h-14 w-14 mx-auto mb-4 bg-green-500 rounded-full flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 16 16">
+                            <path
+                                d="M1.5 0A1.5 1.5 0 0 0 0 1.5v2A1.5 1.5 0 0 0 1.5 5h13A1.5 1.5 0 0 0 16 3.5v-2A1.5 1.5 0 0 0 14.5 0h-13zm1 2h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1 0-1zm9.927.427A.25.25 0 0 1 12.604 2h.792a.25.25 0 0 1 .177.427l-.396.396a.25.25 0 0 1-.354 0l-.396-.396zM0 8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V8zm1 3v2a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2H1zm14-1V8a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2h14zM2 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-2">Recipe App</h3>
+                    <p class="text-gray-400 text-center text-sm">Store and discover delicious recipes</p>
+                </div>
+
+                <div class="project-card rounded-xl p-6 shadow-lg">
+                    <div class="h-14 w-14 mx-auto mb-4 bg-yellow-500 rounded-full flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 16 16">
+                            <path
+                                d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                            <path
+                                d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-2">Quiz App</h3>
+                    <p class="text-gray-400 text-center text-sm">Create and take quizzes on various topics</p>
+                </div>
+
+                <div class="project-card rounded-xl p-6 shadow-lg">
+                    <div class="h-14 w-14 mx-auto mb-4 bg-red-500 rounded-full flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 16 16">
+                            <path
+                                d="M8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-2">Book Review App</h3>
+                    <p class="text-gray-400 text-center text-sm">Share and discover book reviews and recommendations</p>
+                </div>
+
+                <div class="project-card rounded-xl p-6 shadow-lg">
+                    <div class="h-14 w-14 mx-auto mb-4 bg-purple-500 rounded-full flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 16 16">
+                            <path
+                                d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-2">Quote Generator</h3>
+                    <p class="text-gray-400 text-center text-sm">Discover and share motivational quotes</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Curriculum Section -->
+    <div id="curriculum" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold mb-16 text-center">
+                <span class="gradient-text">20-Day</span> Curriculum
+            </h2>
+
+            <!-- Phase 1 -->
+            <div class="phase-card relative bg-slate-800 rounded-xl p-8 mb-16 shadow-xl border border-slate-700">
+                <div class="phase-number">1</div>
+                <h3 class="text-3xl font-bold mb-6 gradient-text">Phase 1: Flutter Flow Basics + Intro to Prompting</h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div class="timeline-item pl-8">
+                            <div class="timeline-dot top-4"></div>
+                            <h4 class="text-xl font-semibold mb-2">Day 1: What is Flutter, Flutter Flow, Dart?</h4>
+                            <p class="text-gray-400">Explain low-code vs full-code. Signup on Flutter Flow.</p>
+                        </div>
+
+                        <div class="timeline-item pl-8">
+                            <div class="timeline-dot top-4"></div>
+                            <h4 class="text-xl font-semibold mb-2">Day 2: Build UI in Flutter Flow</h4>
+                            <p class="text-gray-400">Create "Hello App" with Home and About pages.</p>
+                        </div>
+
+                        <div class="timeline-item pl-8">
+                            <div class="timeline-dot top-4"></div>
+                            <h4 class="text-xl font-semibold mb-2">Day 3: Navigation and Form Widgets</h4>
+                            <p class="text-gray-400">Add navigation between pages and a form (name, email).</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="timeline-item pl-8">
+                            <div class="timeline-dot top-4"></div>
+                            <h4 class="text-xl font-semibold mb-2">Day 4: Prompt Engineering Basics</h4>
+                            <p class="text-gray-400">Use Chat GPT prompts to generate app ideas and dummy content.</p>
+                        </div>
+
+                        <div class="timeline-item pl-8">
+                            <div class="timeline-dot top-4"></div>
+                            <h4 class="text-xl font-semibold mb-2">Day 5: Project 1: Personal Diary App</h4>
+                            <p class="text-gray-400">Design UI and logic with Flutter Flow. Add a form to save entries.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 2 -->
+            <div class="phase-card relative bg-slate-800 rounded-xl p-8 mb-16 shadow-xl border border-slate-700">
+                <div class="phase-number">2</div>
+                <h3 class="text-3xl font-bold mb-6 gradient-text">Phase 2: Firebase, Custom Logic, and Intro to VS Code
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div class="timeline-item pl-8">
+                            <div class="timeline-dot top-4"></div>
+                            <h4 class="text-xl font-semibold mb-2">Day 6: Firebase Setup in Flutter Flow</h4>
+                            <p class="text-gray-400">Add authentication (Login and Signup).</p>
+                        </div>
+
+                        <div class="timeline-item pl-8">
+                            <div class="timeline-dot top-4"></div>
+                            <h4 class="text-xl font-semibold mb-2">Day 7: Firestore Database</h4>
+                            <p class="text-gray-400">Save and display user notes or tasks in Firestore.</p>
+                        </div>
+
+                        <div class="timeline-item pl-8">
+                            <div class="timeline-dot top-4"></div>
+                            <h4 class="text-xl font-semibold mb-2">Day 8: Chat GPT + Custom Dart</h4>
+                            <p class="text-gray-400">Prompt Chat GPT for simple functions (e.g., calculate age) and add
+                                them in Flutter Flow.</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="timeline-item pl-8">
+                            <div class="timeline-dot top-4"></div>
+                            <h4 class="text-xl font-semibold mb-2">Day 9: Flutter + VS Code Setup</h4>
+                            <p class="text-gray-400">Install Flutter SDK, VS Code, and create a "Hello World" project.
+                            </p>
+                        </div>
+
+                        <div class="timeline-item pl-8">
+                            <div class="timeline-dot top-4"></div>
+                            <h4 class="text-xl font-semibold mb-2">Day 10: Compare UI Building</h4>
+                            <p class="text-gray-400">Build the same screen in Flutter Flow and Flutter. Discuss pros and
+                                cons.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 3 -->
+            <div class="phase-card relative bg-slate-800 rounded-xl p-8 mb-16 shadow-xl border border-slate-700">
+                <div class="phase-number">3</div>
+                <h3 class="text-3xl font-bold mb-6 gradient-text">Phase 3: Code Logic + Flutter Widgets with Chat GPT
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div class="timeline-item pl-8">
+                            <div class="timeline-dot top-4"></div>
+                            <h4 class="text-xl font-semibold mb-2">Day 11: VS Code: Layout Widgets</h4>
+                            <p class="text-gray-400">Use Scaffold, App Bar, Column, Row. Use Chat GPT to assist.</p>
+                        </div>
+
+                        <div class="timeline-item pl-8">
+                            <div class="timeline-dot top-4"></div>
+                            <h4 class="text-xl font-semibold mb-2">Day 12: State Management (setState)</h4>
+                            <p class="text-gray-400">Build a counter app with increment logic.</p>
+                        </div>
+
+                        <div class="timeline-item pl-8">
+                            <div class="timeline-dot top-4"></div>
+                            <h4 class="text-xl font-semibold mb-2">Day 13: List View Builder</h4>
+                            <p class="text-gray-400">Create a dynamic to-do list app.</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="timeline-item pl-8">
+                            <div class="timeline-dot top-4"></div>
+                            <h4 class="text-xl font-semibold mb-2">Day 14: Chat GPT Challenge</h4>
+                            <p class="text-gray-400">Students use Chat GPT to build a custom widget (e.g., quiz,
+                                feedback form).</p>
+                        </div>
+
+                        <div class="timeline-item pl-8">
+                            <div class="timeline-dot top-4"></div>
+                            <h4 class="text-xl font-semibold mb-2">Day 15: Project 2: Notes App in Flutter</h4>
+                            <p class="text-gray-400">Build a local notes app using VS Code. Add, view, and delete notes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 4 -->
+            <div class="phase-card relative bg-slate-800 rounded-xl p-8 mb-16 shadow-xl border border-slate-700">
+                <div class="phase-number">4</div>
+                <h3 class="text-3xl font-bold mb-6 gradient-text">Phase 4: Final Project + Integration + Showcase</h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div class="timeline-item pl-8">
+                            <div class="timeline-dot top-4"></div>
+                            <h4 class="text-xl font-semibold mb-2">Day 16: Build Final App UI in Flutter Flow</h4>
+                            <p class="text-gray-400">Group selects final project idea (quiz app, journal app, recipe
+                                app).</p>
+                        </div>
+
+                        <div class="timeline-item pl-8">
+                            <div class="timeline-dot top-4"></div>
+                            <h4 class="text-xl font-semibold mb-2">Day 17: Export Flutter Code from Flutter Flow</h4>
+                            <p class="text-gray-400">Open exported project in VS Code. Understand file structure.</p>
+                        </div>
+
+                        <div class="timeline-item pl-8">
+                            <div class="timeline-dot top-4"></div>
+                            <h4 class="text-xl font-semibold mb-2">Day 18: Modify Code with Chat GPT</h4>
+                            <p class="text-gray-400">Add new features or visual polish using prompt-generated code.</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="timeline-item pl-8">
+                            <div class="timeline-dot top-4"></div>
+                            <h4 class="text-xl font-semibold mb-2">Day 19: Final Testing and Polish</h4>
+                            <p class="text-gray-400">Debug, test login, validate forms, and review UI consistency.</p>
+                        </div>
+
+                        <div class="timeline-item pl-8">
+                            <div class="timeline-dot top-4"></div>
+                            <h4 class="text-xl font-semibold mb-2">Day 20: Presentation and Demo Day</h4>
+                            <p class="text-gray-400">Students present their app, explain how Chat GPT helped, and
+                                receive feedback.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Trainer Section -->
+    <div id="trainer" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-custom">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold mb-16 text-center">
+                <span class="gradient-text">About</span> The Trainer
+            </h2>
+
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/3">
+                    <div class="trainer-img-container w-64 h-64 mx-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-full h-full p-8">
+                            <path fill="#00c6ff"
+                                d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="lg:w-2/3">
+                    <h3 class="text-3xl font-bold mb-4 gradient-text">Arunkumar Gopal</h3>
+                    <p class="text-xl text-gray-300 mb-6">
+                        An experienced tech professional and entrepreneur with over 10 years of expertise in Artificial
+                        Intelligence, Mobile Application Development, and Full Stack Development. He is deeply
+                        passionate about empowering the next generation of developers and innovators.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="expertise-card bg-slate-800 p-4 rounded-lg pl-6">
+                            <h4 class="text-lg font-semibold mb-2">Published Apps</h4>
+                            <p class="text-gray-400">5+ successful apps on the Google Play Store</p>
+                        </div>
+
+                        <div class="expertise-card bg-slate-800 p-4 rounded-lg pl-6">
+                            <h4 class="text-lg font-semibold mb-2">Training Style</h4>
+                            <p class="text-gray-400">Highly hands-on with practical implementation</p>
+                        </div>
+
+                        <div class="expertise-card bg-slate-800 p-4 rounded-lg pl-6">
+                            <h4 class="text-lg font-semibold mb-2">Naan Muthalvan Scheme</h4>
+                            <p class="text-gray-400">Trained 100+ students in Tamilnadu</p>
+                        </div>
+
+                        <div class="expertise-card bg-slate-800 p-4 rounded-lg pl-6">
+                            <h4 class="text-lg font-semibold mb-2">Mentorship</h4>
+                            <p class="text-gray-400">Mentored 50+ interns who secured jobs in reputed companies</p>
+                        </div>
+                    </div>
+
+                    <h4 class="text-xl font-semibold mb-3">Core Expertise:</h4>
+                    <div class="flex flex-wrap gap-3 mb-6">
+                        <span class="bg-blue-600 text-white px-4 py-1 rounded-full text-sm">Artificial
+                            Intelligence</span>
+                        <span class="bg-green-600 text-white px-4 py-1 rounded-full text-sm">Android App
+                            Development</span>
+                        <span class="bg-purple-600 text-white px-4 py-1 rounded-full text-sm">Full Stack Web
+                            Development</span>
+                        <span class="bg-cyan-600 text-white px-4 py-1 rounded-full text-sm">Hands-on Training &
+                            Mentorship</span>
+                    </div>
+
+                    <h4 class="text-xl font-semibold mb-3">Training Highlights:</h4>
+                    <ul class="list-disc list-inside text-gray-300 space-y-2">
+                        <li>Real-time project experience</li>
+                        <li>Career-focused mentorship</li>
+                        <li>Strong placement support in India</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Section -->
+    <div id="portfolio" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold mb-16 text-center">
+                <span class="gradient-text">Hi5Technet</span> Portfolio
+            </h2>
+
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold mb-8 text-center">Websites</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <a href="https://bestdirectfinance.co.uk/" target="_blank"
+                        class="portfolio-item block bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-48 bg-black flex items-center justify-center">
+                            <img src="img/nextgenwebsite1.png" alt="Best Direct Finance thumbnail"
+                                class="object-cover w-full h-full" />
+                        </div>
+                        <div class="p-4">
+                            <h4 class="text-lg font-semibold mb-1">Best Direct Finance</h4>
+                            <p class="text-gray-400 text-sm">Financial services website</p>
+                        </div>
+                    </a>
+
+                    <a href="https://mynewversionllc.com/" target="_blank"
+                        class="portfolio-item block bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-48 bg-black flex items-center justify-center">
+                            <img src="img/nextgenwebsite3.png" alt="My New Version LLC thumbnail"
+                                class="object-cover w-full h-full" />
+                        </div>
+                        <div class="p-4">
+                            <h4 class="text-lg font-semibold mb-1">My New Version LLC</h4>
+                            <p class="text-gray-400 text-sm">Business consulting website</p>
+                        </div>
+                    </a>
+
+                    <a href="https://tekstag.com/" target="_blank"
+                        class="portfolio-item block bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-48 bg-black flex items-center justify-center">
+                            <img src="img/nextgenwebsite2.png" alt="Tekstag thumbnail"
+                                class="object-cover w-full h-full" />
+                        </div>
+                        <div class="p-4">
+                            <h4 class="text-lg font-semibold mb-1">Tekstag</h4>
+                            <p class="text-gray-400 text-sm">Technology solutions platform</p>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold mb-8 text-center">Mobile Applications</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                    <!-- ELIM Wellington Android App -->
+                    <!-- TailwindCSS Required -->
+
+                    <!-- ELIM (WELLINGTON) - Android -->
+                    <a href="https://play.google.com/store/apps/details?id=dev.rcloud.elimwellington.twa"
+                        target="_blank" class="portfolio-item block bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-40 bg-gradient-to-r from-blue-600 to-blue-400 flex items-center justify-center">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                                alt="Get it on Google Play" class="h-10">
+                        </div>
+                        <div class="p-4">
+                            <h4 class="text-lg font-semibold mb-1">ELIM (WELLINGTON)</h4>
+                            <p class="text-gray-400 text-sm">Android App</p>
+                        </div>
+                    </a>
+
+                    <!-- ELIM (HAMILTON) - Android -->
+                    <a href="https://play.google.com/store/apps/details?id=app.web.elim_hamilton.twa" target="_blank"
+                        class="portfolio-item block bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-40 bg-gradient-to-r from-blue-600 to-blue-400 flex items-center justify-center">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                                alt="Get it on Google Play" class="h-10">
+                        </div>
+                        <div class="p-4">
+                            <h4 class="text-lg font-semibold mb-1">ELIM (HAMILTON)</h4>
+                            <p class="text-gray-400 text-sm">Android App</p>
+                        </div>
+                    </a>
+
+                    <!-- JAYANATHAN CHITS - Android -->
+                    <a href="https://play.google.com/store/apps/details?id=com.sjctc.chitfunds" target="_blank"
+                        class="portfolio-item block bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-40 bg-gradient-to-r from-blue-600 to-blue-400 flex items-center justify-center">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                                alt="Get it on Google Play" class="h-10">
+                        </div>
+                        <div class="p-4">
+                            <h4 class="text-lg font-semibold mb-1">JAYANATHAN CHITS</h4>
+                            <p class="text-gray-400 text-sm">Android App</p>
+                        </div>
+                    </a>
+
+                    <!-- YF PARTNER - Android -->
+                    <a href="https://play.google.com/store/apps/details?id=com.yfpartner" target="_blank"
+                        class="portfolio-item block bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-40 bg-gradient-to-r from-blue-600 to-blue-400 flex items-center justify-center">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                                alt="Get it on Google Play" class="h-10">
+                        </div>
+                        <div class="p-4">
+                            <h4 class="text-lg font-semibold mb-1">YF PARTNER</h4>
+                            <p class="text-gray-400 text-sm">Android App</p>
+                        </div>
+                    </a>
+
+                    <!-- ELIM (WELLINGTON) - iOS -->
+                    <a href="https://apps.apple.com/in/app/elim-wellington/id1594577377" target="_blank"
+                        class="portfolio-item block bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-40 bg-gradient-to-r from-gray-600 to-gray-400 flex items-center justify-center">
+                            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                                alt="Download on the App Store" class="h-10">
+                        </div>
+                        <div class="p-4">
+                            <h4 class="text-lg font-semibold mb-1">ELIM (WELLINGTON)</h4>
+                            <p class="text-gray-400 text-sm">iOS App</p>
+                        </div>
+                    </a>
+
+                    <!-- ELIM (HAMILTON) - iOS -->
+                    <a href="https://apps.apple.com/in/app/elim-hamilton/id6472696171" target="_blank"
+                        class="portfolio-item block bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-40 bg-gradient-to-r from-gray-600 to-gray-400 flex items-center justify-center">
+                            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                                alt="Download on the App Store" class="h-10">
+                        </div>
+                        <div class="p-4">
+                            <h4 class="text-lg font-semibold mb-1">ELIM (HAMILTON)</h4>
+                            <p class="text-gray-400 text-sm">iOS App</p>
+                        </div>
+                    </a>
+
+                    <!-- JAYANATHAN CHITS - iOS -->
+                    <a href="https://apps.apple.com/in/app/jayanathan-chits-table-cash/id1609172958" target="_blank"
+                        class="portfolio-item block bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-40 bg-gradient-to-r from-gray-600 to-gray-400 flex items-center justify-center">
+                            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                                alt="Download on the App Store" class="h-10">
+                        </div>
+                        <div class="p-4">
+                            <h4 class="text-lg font-semibold mb-1">JAYANATHAN CHITS</h4>
+                            <p class="text-gray-400 text-sm">iOS App</p>
+                        </div>
+                    </a>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer
+        class="w-full mt-10 animate-gradient-x bg-gradient-to-r from-indigo-500 via-pink-500 to-yellow-500 bg-[length:200%_200%] text-white text-center py-6 text-lg font-semibold shadow-inner">
+        <p>© <span id="currentYear"></span> Silambu x Hi5Technet - NextGen Flutter Coders Camp - June 16 to July 17 -
+            Come join us!</p>
+    </footer>
+</body>
+<script>
+    // Set current year dynamically
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+</script>
+
+</html>

@@ -8,19 +8,19 @@ const TESTIMONIALS_DATA = [
   {
     name: "Mr Krishnan",
     role: "E-commerce Entrepreneur",
-    image: "/images/testimonial-1.png",
-    quote: "As a small business owner, I was struggling to stand out in a crowded market. Thanks to Hi5TechNet, I've seen a remarkable increase in both brand visibility and revenue. Adaptive e-tailers after sustainable total linkage. Appropriately implement one-to-one catalysts for change."
+    image: `${(import.meta as any).env.BASE_URL}images/testimonial-1.png`,
+    quote: "Partnering with Hi5TechNet completely changed my position in a competitive market. Their strategic approach helped boost our online presence, attract more customers, and drive significant business growth. Their team delivers tailored digital solutions that create meaningful engagement and measurable results."
   },
   {
     name: "Mr John Britto",
     role: "Tech Startup CEO",
-    image: "/images/testimonial-2.png",
+    image: `${(import.meta as any).env.BASE_URL}images/testimonial-2.png`,
     quote: "Our tech startup needed to make a splash in the industry, and Hi5Technet delivered beyond our wildest expectations. Their digital marketing expertise not only boosted our brand's visibility but also played a crucial role in securing new partnerships and investors."
   },
   {
     name: "Mr Mathew",
     role: "Small Business Owner",
-    image: "/images/testimonial-3.png",
+    image: `${(import.meta as any).env.BASE_URL}images/testimonial-3.png`,
     quote: "As a small business owner, I was struggling to stand out in a crowded market. Thanks to Hi5TechNet, I've seen a remarkable increase in both brand visibility and revenue. Adaptive e-tailers after sustainable total linkage. Appropriately implement one-to-one catalysts for change."
   }
 ];
@@ -61,25 +61,25 @@ const TrustSection: React.FC = () => {
   const [ref, isInView] = useInView(observerOptions); // Use memoized options
 
   return (
-    <section 
+    <section
       ref={ref}
       className="py-20 md:py-28 bg-gradient-to-br from-background-dark to-gray-900 relative overflow-hidden"
     >
       <div className="container mx-auto px-6">
-        
+
         {/* Header Animation */}
-        <div className={`transition-all duration-700 ease-out transform ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        {/* <div className={`transition-all duration-700 ease-out transform ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <SectionHeader
             label="Our Client Success"
             title="Why Businesses Trust HI5 Technet"
             description="Hear directly from leaders who have partnered with us to achieve their most ambitious AI-driven transformation goals."
           />
-        </div>
+        </div> */}
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
           {TESTIMONIALS_DATA.map((item, index) => (
-            <Card 
-              key={index} 
+            <Card
+              key={index}
               className={`
                 p-8 h-full flex flex-col transition-all duration-700 ease-out
                 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(38,212,140,0.1)] hover:border-primary-brand/30
@@ -92,8 +92,8 @@ const TrustSection: React.FC = () => {
                 <div className="relative w-16 h-16 mr-4 flex-shrink-0">
                   {/* Image Placeholder with fallback background */}
                   <div className="w-full h-full rounded-full bg-gray-700 overflow-hidden border-2 border-primary-brand/20">
-                    <img 
-                      src={item.image} 
+                    <img
+                      src={item.image}
                       alt={item.name}
                       className="w-full h-full object-cover"
                       // Fallback if image is missing
@@ -105,11 +105,11 @@ const TrustSection: React.FC = () => {
                     />
                   </div>
                 </div>
-                
+
                 <div>
                   <h4 className="text-lg font-bold text-white leading-tight">{item.name}</h4>
                   <p className="text-sm text-primary-brand mb-1">{item.role}</p>
-                  
+
                   {/* Star Ratings (SVG Loop) */}
                   <div className="flex text-yellow-500">
                     {[...Array(5)].map((_, i) => (
@@ -133,7 +133,7 @@ const TrustSection: React.FC = () => {
         </div>
 
         {/* Footer Text */}
-        <div 
+        <div
           className={`
             text-center mt-16 text-lg md:text-xl text-text-muted transition-all duration-700 delay-500 ease-out
             ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}

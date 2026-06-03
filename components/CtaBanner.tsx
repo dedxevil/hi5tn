@@ -36,8 +36,8 @@ const CtaBanner: React.FC = () => {
   const [ref, isInView] = useInView(observerOptions); // Use memoized options
 
   return (
-    <section 
-      ref={ref} 
+    <section
+      ref={ref}
       className="py-24 relative overflow-hidden border-t border-white/5 bg-background-dark"
     >
       {/* 2. INLINE STYLES FOR BRAND COLOR SHINE */}
@@ -65,48 +65,48 @@ const CtaBanner: React.FC = () => {
 
       {/* --- BACKGROUND LAYER --- */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div 
+        <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] opacity-10 blur-[120px]"
           style={{ background: 'radial-gradient(circle, #26d48c 0%, transparent 60%)' }}
         ></div>
       </div>
-      <div 
-        className="absolute inset-0 opacity-[0.03]" 
-        style={{ 
-          backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', 
-          backgroundSize: '50px 50px' 
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)',
+          backgroundSize: '50px 50px'
         }}
       ></div>
 
       {/* --- CONTENT LAYER --- */}
       <div className="container mx-auto px-6 text-center relative z-10">
-        
+
         {/* Badge */}
         <div className={`
             inline-block mb-6 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md
             transform transition-all duration-700 ease-out
             ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
         `}>
-            <span className="text-gray-300 text-xs font-bold tracking-widest uppercase">Start Your Transformation</span>
+          <span className="text-gray-300 text-xs font-bold tracking-widest uppercase">Start Your Transformation</span>
         </div>
 
         {/* Headline */}
-        <h2 
+        <h2
           className={`
             text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-white mb-8
             transform transition-all duration-700 delay-100 ease-out
             ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
           `}
         >
-          Ready to Engineer Your <br className="hidden md:block"/>
+          Ready to Engineer Your <br className="hidden md:block" />
           {/* Applying the custom GREEN shine class */}
           <span className="brand-shine-text">
-             AI-Powered Future?
+            AI-Powered Future?
           </span>
         </h2>
 
         {/* Description */}
-        <p 
+        <p
           className={`
             text-lg sm:text-xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed
             transform transition-all duration-700 delay-200 ease-out
@@ -117,20 +117,25 @@ const CtaBanner: React.FC = () => {
         </p>
 
         {/* Buttons */}
-        <div 
+        <div
           className={`
             flex flex-col sm:flex-row justify-center gap-5 items-center
             transform transition-all duration-700 delay-300 ease-out
             ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
           `}
         >
-            <Button size="lg" to="/contact" className="w-full sm:w-auto min-w-[200px] shadow-[0_0_20px_rgba(38,212,140,0.15)] hover:shadow-[0_0_25px_rgba(38,212,140,0.3)] transition-shadow duration-300">
-                Schedule Consultation
-            </Button>
-            
-            <Button variant="outline" size="lg" to="/ai-solutions" className="w-full sm:w-auto min-w-[200px] border-white/10 hover:bg-white/5">
-                View Solutions
-            </Button>
+          <Button 
+            size="lg" 
+            showGoldenShine={true}
+            onClick={() => window.dispatchEvent(new CustomEvent('open-funnel-modal'))}
+            className="w-full sm:w-auto min-w-[200px] !bg-primary-brand !text-black shadow-[0_0_30px_rgba(38,212,140,0.6)] hover:shadow-[0_0_45px_rgba(38,212,140,0.9)] hover:scale-105 transition-all duration-300"
+          >
+            Get Instant AI Access
+          </Button>
+
+          <Button variant="outline" size="lg" to="/services" className="w-full sm:w-auto min-w-[200px] border-white/10 hover:bg-white/5">
+            View Services
+          </Button>
         </div>
       </div>
     </section>

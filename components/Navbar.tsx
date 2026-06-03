@@ -16,6 +16,18 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -23,14 +35,14 @@ const Navbar: React.FC = () => {
   return (
     <nav 
       className={`
-        fixed z-50 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]
+        fixed z-50 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
         left-1/2 -translate-x-1/2
-        border border-white/10 shadow-2xl shadow-black/40 backdrop-blur-xl bg-black/20
+        border border-white/10 shadow-2xl shadow-black/40 backdrop-blur-xl
+        ${scrolled ? 'bg-black/40 top-4' : 'bg-transparent top-4 md:top-6 border-transparent shadow-none backdrop-blur-none'}
         
-        /* --- SIZING CHANGES HERE --- */
-        top-4 md:top-6
-        w-[95%] md:w-[98%] max-w-screen-2xl 
-        rounded-3xl /* Always rounded-3xl for consistent glass effect */
+        /* --- SIZING CHANGES --- */
+        w-[92%] md:w-[98%] max-w-screen-2xl 
+        rounded-3xl
       `}
     >
       <div className={`
@@ -38,7 +50,7 @@ const Navbar: React.FC = () => {
         /* --- PADDING CHANGES HERE --- */
         px-6 py-4 md:px-12 md:py-5
       `}>
-        <NavLink to="/" className="flex items-center group relative z-50">
+        <a href="/hi5tn/" className="flex items-center group relative z-50">
           {/* HI5 Technet SVG Logo - Scaled Up */}
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
@@ -60,7 +72,7 @@ const Navbar: React.FC = () => {
             <path fill="#26d48c" d="M 257.71875 225.117188 L 257.71875 261.546875 L 62.296875 294.695312 Z M 257.71875 225.117188 " fillOpacity="1" fillRule="nonzero"/>
           </svg>
           <span className="sr-only">HI5 Technet</span>
-        </NavLink>
+        </a>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-12 items-center">
@@ -68,6 +80,7 @@ const Navbar: React.FC = () => {
             <NavLink
               key={link.name}
               to={link.to}
+              onClick={() => window.scrollTo(0, 0)}
               // Add 'group relative' here for the span positioning
               className="group relative text-base font-medium transition-all duration-300"
             >
@@ -128,7 +141,7 @@ const Navbar: React.FC = () => {
             <NavLink
               key={link.name}
               to={link.to}
-              onClick={() => setIsOpen(false)}
+              onClick={() => { setIsOpen(false); window.scrollTo(0, 0); }}
               className="group relative inline-flex w-fit text-lg font-medium"
             >
               {({ isActive }) => (

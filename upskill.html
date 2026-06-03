@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generative AI Mastery - Come join us - Starts October 5 2025, 10:30am EST</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%234285f4'/%3E%3Cstop offset='25%25' style='stop-color:%2334a853'/%3E%3Cstop offset='50%25' style='stop-color:%23fbbc04'/%3E%3Cstop offset='75%25' style='stop-color:%23ea4335'/%3E%3Cstop offset='100%25' style='stop-color:%234285f4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='6' fill='url(%23bg)'/%3E%3Ccircle cx='10' cy='10' r='2' fill='white' opacity='0.9'%3E%3Canimate attributeName='opacity' values='0.5;1;0.5' dur='2s' repeatCount='indefinite'/%3E%3C/circle%3E%3Ccircle cx='22' cy='10' r='2' fill='white' opacity='0.7'%3E%3Canimate attributeName='opacity' values='0.3;0.9;0.3' dur='2.5s' repeatCount='indefinite'/%3E%3C/circle%3E%3Ccircle cx='10' cy='22' r='2' fill='white' opacity='0.8'%3E%3Canimate attributeName='opacity' values='0.4;1;0.4' dur='1.8s' repeatCount='indefinite'/%3E%3C/circle%3E%3Ccircle cx='22' cy='22' r='2' fill='white' opacity='0.6'%3E%3Canimate attributeName='opacity' values='0.2;0.8;0.2' dur='2.2s' repeatCount='indefinite'/%3E%3C/circle%3E%3Ccircle cx='16' cy='16' r='3' fill='white' opacity='0.95'%3E%3Canimate attributeName='r' values='2.5;3.5;2.5' dur='3s' repeatCount='indefinite'/%3E%3Canimate attributeName='opacity' values='0.8;1;0.8' dur='3s' repeatCount='indefinite'/%3E%3C/circle%3E%3C/svg%3E">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        body {
+            box-sizing: border-box;
+            font-family: 'Gabarito', sans-serif;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes geminiRotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .animate-slideIn {
+            animation: slideIn 0.6s ease-out forwards;
+        }
+
+        .animate-gemini {
+            animation: geminiRotate 10s linear infinite;
+        }
+
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-400 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-500 {
+            animation-delay: 0.5s;
+        }
+
+        .opacity-0 {
+            opacity: 0;
+        }
+
+        .google-blue {
+            color: #4285f4;
+        }
+
+        .google-red {
+            color: #ea4335;
+        }
+
+        .google-yellow {
+            color: #fbbc04;
+        }
+
+        .google-green {
+            color: #34a853;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #4285f4, #34a853, #fbbc04, #ea4335);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .gemini-logo {
+            width: 32px;
+            height: 32px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gemini-star {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .star-1 {
+            background: #4285f4;
+            top: 2px;
+            left: 12px;
+        }
+
+        .star-2 {
+            background: #ea4335;
+            top: 8px;
+            right: 2px;
+        }
+
+        .star-3 {
+            background: #fbbc04;
+            bottom: 2px;
+            left: 12px;
+        }
+
+        .star-4 {
+            background: #34a853;
+            top: 8px;
+            left: 2px;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #4285f4, #34a853);
+            border-radius: 1px;
+        }
+
+        .dropdown {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-trigger:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .animated-bg {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .animated-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(66, 133, 244, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(52, 168, 83, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(251, 188, 4, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 60% 60%, rgba(234, 67, 53, 0.1) 0%, transparent 50%);
+            animation: backgroundShift 20s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        .floating-stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .star:nth-child(1) {
+            background: #4285f4;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .star:nth-child(2) {
+            background: #34a853;
+            top: 20%;
+            left: 80%;
+            animation-delay: 1s;
+        }
+
+        .star:nth-child(3) {
+            background: #fbbc04;
+            top: 60%;
+            left: 20%;
+            animation-delay: 2s;
+        }
+
+        .star:nth-child(4) {
+            background: #ea4335;
+            top: 80%;
+            left: 70%;
+            animation-delay: 3s;
+        }
+
+        .star:nth-child(5) {
+            background: #4285f4;
+            top: 30%;
+            left: 50%;
+            animation-delay: 4s;
+        }
+
+        .star:nth-child(6) {
+            background: #34a853;
+            top: 70%;
+            left: 90%;
+            animation-delay: 5s;
+        }
+
+        @keyframes backgroundShift {
+
+            0%,
+            100% {
+                transform: translateX(0) translateY(0);
+            }
+
+            25% {
+                transform: translateX(-20px) translateY(-10px);
+            }
+
+            50% {
+                transform: translateX(20px) translateY(10px);
+            }
+
+            75% {
+                transform: translateX(-10px) translateY(20px);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) scale(1);
+                opacity: 0.7;
+            }
+
+            50% {
+                transform: translateY(-20px) scale(1.2);
+                opacity: 1;
+            }
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(66, 133, 244, 0.3), 0 0 40px rgba(66, 133, 244, 0.2), 0 0 60px rgba(66, 133, 244, 0.1);
+            }
+
+            50% {
+                box-shadow: 0 0 30px rgba(66, 133, 244, 0.5), 0 0 60px rgba(66, 133, 244, 0.3), 0 0 90px rgba(66, 133, 244, 0.2);
+            }
+        }
+
+        @keyframes titleGlow {
+
+            0%,
+            100% {
+                text-shadow: 0 0 20px rgba(66, 133, 244, 0.5), 0 0 40px rgba(66, 133, 244, 0.3), 0 0 60px rgba(66, 133, 244, 0.2);
+                transform: scale(1);
+            }
+
+            50% {
+                text-shadow: 0 0 30px rgba(66, 133, 244, 0.8), 0 0 60px rgba(66, 133, 244, 0.5), 0 0 90px rgba(66, 133, 244, 0.3);
+                transform: scale(1.02);
+            }
+        }
+
+        .curriculum-title {
+            animation: titleGlow 3s ease-in-out infinite;
+        }
+
+        .week-container {
+            position: relative;
+        }
+
+        .week-container::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #4285f4, #34a853, #fbbc04);
+            opacity: 0.8;
+            border-radius: 2px;
+        }
+
+        .week-container:last-child::after {
+            display: none;
+        }
+
+        .cta-gradient {
+            background: linear-gradient(-45deg, #1e3a8a, #3b82f6, #60a5fa, #93c5fd, #dbeafe, #3b82f6, #1e40af);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #ffffff, #f8fafc);
+            color: #1e40af;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.6s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(66, 133, 244, 0.3);
+        }
+
+        .night-sky {
+            background: linear-gradient(180deg, #0f0f23 0%, #1a1a2e 30%, #16213e 70%, #0f0f23 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .night-sky::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(2px 2px at 20px 30px, #ffffff, transparent),
+                radial-gradient(2px 2px at 40px 70px, #ffffff, transparent),
+                radial-gradient(1px 1px at 90px 40px, #ffffff, transparent),
+                radial-gradient(1px 1px at 130px 80px, #ffffff, transparent),
+                radial-gradient(2px 2px at 160px 30px, #ffffff, transparent),
+                radial-gradient(1px 1px at 200px 60px, #ffffff, transparent),
+                radial-gradient(2px 2px at 240px 90px, #ffffff, transparent),
+                radial-gradient(1px 1px at 280px 20px, #ffffff, transparent),
+                radial-gradient(1px 1px at 320px 70px, #ffffff, transparent),
+                radial-gradient(2px 2px at 360px 40px, #ffffff, transparent);
+            background-repeat: repeat;
+            background-size: 400px 200px;
+            animation: twinkle 4s ease-in-out infinite alternate;
+            z-index: 0;
+        }
+
+        .night-sky::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 2%),
+                radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.08) 0%, transparent 2%),
+                radial-gradient(circle at 45% 80%, rgba(255, 255, 255, 0.12) 0%, transparent 2%),
+                radial-gradient(circle at 75% 70%, rgba(255, 255, 255, 0.09) 0%, transparent 2%);
+            animation: starGlow 6s ease-in-out infinite alternate;
+            z-index: 1;
+        }
+
+        .moon {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f7fafc 0%, #e2e8f0 50%, #cbd5e0 100%);
+            box-shadow:
+                inset -10px -10px 0 rgba(0, 0, 0, 0.1),
+                0 0 20px rgba(255, 255, 255, 0.3),
+                0 0 40px rgba(255, 255, 255, 0.2);
+            animation: moonFloat 8s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        .moon::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .moon::after {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 35px;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.08);
+        }
+
+        .comet {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 0 6px #ffffff;
+            animation: cometTrail 12s linear infinite;
+            z-index: 2;
+        }
+
+        .comet::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -20px;
+            width: 20px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4));
+            border-radius: 2px;
+        }
+
+        .meteor {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #60a5fa;
+            border-radius: 50%;
+            animation: meteorShower 8s linear infinite;
+            z-index: 2;
+        }
+
+        .meteor::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -15px;
+            width: 15px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.8));
+            border-radius: 1px;
+        }
+
+        @keyframes twinkle {
+            0% {
+                opacity: 0.3;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes starGlow {
+            0% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes moonFloat {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes cometTrail {
+            0% {
+                transform: translateX(-100px) translateY(100px);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateX(calc(100vw + 100px)) translateY(-100px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes meteorShower {
+            0% {
+                transform: translateX(100px) translateY(-100px);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateX(-100px) translateY(100px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white">
+    <!-- Navigation -->
+    <nav class="bg-gray-800 border-b border-gray-700 sticky top-0 z-50 backdrop-blur-sm bg-opacity-95">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-4">
+                    <div class="gemini-logo animate-gemini">
+                        <div class="gemini-star star-1"></div>
+                        <div class="gemini-star star-2"></div>
+                        <div class="gemini-star star-3"></div>
+                        <div class="gemini-star star-4"></div>
+                    </div>
+                    <span class="text-xl font-bold gradient-text">Generative AI Mastery</span>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#curriculum" class="nav-link text-gray-300 hover:text-white">Curriculum</a>
+                    <a href="#faq" class="nav-link text-gray-300 hover:text-white">FAQ</a>
+                    <a href="#instructor" class="nav-link text-gray-300 hover:text-white">Instructor</a>
+                    <div class="dropdown-trigger relative">
+                        <a href="#" class="nav-link text-gray-300 hover:text-white">Resources</a>
+                        <div
+                            class="dropdown absolute top-full left-0 mt-2 w-48 bg-gray-800 rounded-lg shadow-xl border border-gray-700">
+                            <a href="#tools"
+                                class="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-700">Tools &
+                                Setup</a>
+                            <a href="#portfolio"
+                                class="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-700">Portfolio</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-700">Documentation</a>
+                        </div>
+                    </div>
+                    <a href="#contact" class="nav-link text-gray-300 hover:text-white">Contact</a>
+                </div>
+
+                <button class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg font-medium transition-colors"
+                    onclick="window.open('https://forms.gle/uDRWhfg36Pxkn3Mp8', '_blank')">
+                    Enroll Now
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-24 animated-bg">
+        <div class="floating-stars">
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-5xl mx-auto text-center">
+                <div class="flex justify-center mb-8">
+                    <div class="gemini-logo animate-gemini" style="width: 80px; height: 80px;">
+                        <div class="gemini-star star-1" style="width: 16px; height: 16px; top: 8px; left: 32px;"></div>
+                        <div class="gemini-star star-2" style="width: 16px; height: 16px; top: 20px; right: 8px;"></div>
+                        <div class="gemini-star star-3" style="width: 16px; height: 16px; bottom: 8px; left: 32px;">
+                        </div>
+                        <div class="gemini-star star-4" style="width: 16px; height: 16px; top: 20px; left: 8px;"></div>
+                    </div>
+                </div>
+
+                <h1 class="text-6xl md:text-7xl font-bold mb-6 opacity-0 animate-fadeInUp">
+                    <span class="gradient-text">Generative AI</span><br>
+                    <span class="text-white">Mastery</span>
+                </h1>
+                <p class="text-2xl text-gray-300 mb-4 opacity-0 animate-fadeInUp delay-200">
+                    Master the Future of AI in 12 Weeks (Oct 5 2025 to Dec 21st 2025)
+                </p>
+                <p class="text-lg google-blue mb-12 opacity-0 animate-fadeInUp delay-300">
+                    🚀 Come join us - Starts October 5 2025, 10:30am EST
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-fadeInUp delay-400">
+                    <button
+                        class="bg-blue-600 hover:bg-blue-700 px-10 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105">
+                        Start Your AI Journey
+                    </button>
+                    <button
+                        class="bg-white text-blue-600 border-2 border-gray-600 hover:border-blue-500 hover:text-blue-700 px-10 py-4 rounded-lg font-semibold text-lg transition-all">
+                        View Curriculum
+                    </button>
+
+                </div>
+                <div class="pt-6">
+                    <button class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg font-medium transition-colors"
+                        onclick="window.open('https://meet.google.com', '_blank')">
+                        Free Classes on Every Sunday
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section id="tools" class="py-20 night-sky">
+        <div class="moon" style="top: 20px; right: 10%;"></div>
+        <div class="comet" style="top: 30%; right: 0;"></div>
+        <div class="meteor" style="top: 60%; right: 20%; animation-delay: 2s;"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-4xl font-bold text-center mb-16 opacity-0 animate-fadeInUp">
+                <span class="google-blue">Tools</span> <span class="google-green">& Prequisites</span> needed for the
+                course
+            </h2>
+            <!-- API Keys & Tokens -->
+            <div class="mb-12">
+                <h3 class="text-xl font-bold mb-6 google-blue"><i class="fas fa-key mr-3"></i>API Keys & Tokens</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div
+                        class="bg-gray-700 hover:bg-gray-600 p-4 rounded-xl text-center card-hover opacity-0 animate-slideIn delay-100">
+                        <div class="text-2xl mb-2 text-blue-400"><i class="fas fa-key"></i></div>
+                        <h4 class="font-semibold text-sm">OpenRouter / OpenAI</h4>
+                    </div>
+                    <div
+                        class="bg-gray-700 hover:bg-gray-600 p-4 rounded-xl text-center card-hover opacity-0 animate-slideIn delay-200">
+                        <div class="text-2xl mb-2 text-orange-400"><i class="fas fa-robot"></i></div>
+                        <h4 class="font-semibold text-sm">Hugging Face Token</h4>
+                    </div>
+                    <div
+                        class="bg-gray-700 hover:bg-gray-600 p-4 rounded-xl text-center card-hover opacity-0 animate-slideIn delay-300">
+                        <div class="text-2xl mb-2 text-purple-400"><i class="fas fa-chart-line"></i></div>
+                        <h4 class="font-semibold text-sm">Langfuse</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Frameworks & SDKs -->
+            <div class="mb-12">
+                <h3 class="text-xl font-bold mb-6 google-green"><i class="fas fa-cogs mr-3"></i>Frameworks & SDKs</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                    <div
+                        class="bg-gray-700 hover:bg-gray-600 p-4 rounded-xl text-center card-hover opacity-0 animate-slideIn delay-100">
+                        <div class="text-2xl mb-2 text-green-400"><i class="fas fa-link"></i></div>
+                        <h4 class="font-semibold text-sm">LangChain</h4>
+                    </div>
+                    <div
+                        class="bg-gray-700 hover:bg-gray-600 p-4 rounded-xl text-center card-hover opacity-0 animate-slideIn delay-200">
+                        <div class="text-2xl mb-2 text-blue-400"><i class="fas fa-users"></i></div>
+                        <h4 class="font-semibold text-sm">CrewAI</h4>
+                    </div>
+                    <div
+                        class="bg-gray-700 hover:bg-gray-600 p-4 rounded-xl text-center card-hover opacity-0 animate-slideIn delay-300">
+                        <div class="text-2xl mb-2 text-yellow-400"><i class="fas fa-search"></i></div>
+                        <h4 class="font-semibold text-sm">LlamaIndex</h4>
+                    </div>
+                    <div
+                        class="bg-gray-700 hover:bg-gray-600 p-4 rounded-xl text-center card-hover opacity-0 animate-slideIn delay-400">
+                        <div class="text-2xl mb-2 text-cyan-400"><i class="fas fa-robot"></i></div>
+                        <h4 class="font-semibold text-sm">OpenAI Agent SDK</h4>
+                    </div>
+                    <div
+                        class="bg-gray-700 hover:bg-gray-600 p-4 rounded-xl text-center card-hover opacity-0 animate-slideIn delay-500">
+                        <div class="text-2xl mb-2 text-red-400"><i class="fas fa-brain"></i></div>
+                        <h4 class="font-semibold text-sm">PydanticAI</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Models & Libraries -->
+            <div class="mb-12">
+                <h3 class="text-xl font-bold mb-6 google-yellow"><i class="fas fa-cube mr-3"></i>Models & Libraries</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div
+                        class="bg-gray-700 hover:bg-gray-600 p-4 rounded-xl text-center card-hover opacity-0 animate-slideIn delay-100">
+                        <div class="text-2xl mb-2 text-orange-400"><i class="fas fa-transform"></i></div>
+                        <h4 class="font-semibold text-sm">HF Transformers</h4>
+                    </div>
+                    <div
+                        class="bg-gray-700 hover:bg-gray-600 p-4 rounded-xl text-center card-hover opacity-0 animate-slideIn delay-200">
+                        <div class="text-2xl mb-2 text-green-400"><i class="fas fa-vector-square"></i></div>
+                        <h4 class="font-semibold text-sm">Sentence-Transformers</h4>
+                    </div>
+                    <div
+                        class="bg-gray-700 hover:bg-gray-600 p-4 rounded-xl text-center card-hover opacity-0 animate-slideIn delay-300">
+                        <div class="text-2xl mb-2 text-purple-400"><i class="fas fa-server"></i></div>
+                        <h4 class="font-semibold text-sm">Ollama (Local LLMs)</h4>
+                    </div>
+                    <div
+                        class="bg-gray-700 hover:bg-gray-600 p-4 rounded-xl text-center card-hover opacity-0 animate-slideIn delay-400">
+                        <div class="text-2xl mb-2 text-blue-400"><i class="fas fa-database"></i></div>
+                        <h4 class="font-semibold text-sm">Qdrant Vector DB</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Development Tools -->
+            <div>
+                <h3 class="text-xl font-bold mb-6 google-red"><i class="fas fa-tools mr-3"></i>Development Tools</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div
+                        class="bg-gray-700 hover:bg-gray-600 p-4 rounded-xl text-center card-hover opacity-0 animate-slideIn delay-100">
+                        <div class="text-2xl mb-2 text-blue-400"><i class="fas fa-code"></i></div>
+                        <h4 class="font-semibold text-sm">VS Code / Cursor</h4>
+                    </div>
+                    <div
+                        class="bg-gray-700 hover:bg-gray-600 p-4 rounded-xl text-center card-hover opacity-0 animate-slideIn delay-200">
+                        <div class="text-2xl mb-2 text-cyan-400"><i class="fab fa-docker"></i></div>
+                        <h4 class="font-semibold text-sm">Docker Desktop</h4>
+                    </div>
+                    <div
+                        class="bg-gray-700 hover:bg-gray-600 p-4 rounded-xl text-center card-hover opacity-0 animate-slideIn delay-300">
+                        <div class="text-2xl mb-2 text-orange-400"><i class="fab fa-git-alt"></i></div>
+                        <h4 class="font-semibold text-sm">Git & GitHub</h4>
+                    </div>
+                    <div
+                        class="bg-gray-700 hover:bg-gray-600 p-4 rounded-xl text-center card-hover opacity-0 animate-slideIn delay-400">
+                        <div class="text-2xl mb-2 text-yellow-400"><i class="fab fa-python"></i></div>
+                        <h4 class="font-semibold text-sm">Python 3.10+</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Modules -->
+    <section id="curriculum" class="py-20 night-sky">
+        <div class="moon" style="top: 40px; left: 8%;"></div>
+        <div class="comet" style="top: 50%; left: 0; animation-delay: 4s;"></div>
+        <div class="meteor" style="top: 20%; left: 70%; animation-delay: 6s;"></div>
+        <div class="meteor" style="top: 80%; left: 30%; animation-delay: 1s;"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-4xl font-bold text-center mb-16 opacity-0 animate-fadeInUp curriculum-title">
+                <span class="google-red">Comprehensive</span> <span class="gradient-text">Curriculum</span>
+            </h2>
+
+            <div class="max-w-7xl mx-auto space-y-8">
+                <!-- Module 1 -->
+                <div class="bg-gray-800 rounded-2xl overflow-hidden card-hover opacity-0 animate-fadeInUp delay-100">
+                    <div class="bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-6">
+                        <h3 class="text-2xl font-bold">Module 1: Foundations</h3>
+                        <p class="text-blue-100">Weeks 1-3 • Build your AI knowledge base</p>
+                    </div>
+                    <div class="p-8">
+                        <div class="grid md:grid-cols-3 gap-8">
+                            <div class="space-y-3 week-container">
+                                <h4 class="font-bold text-lg google-blue">Week 1</h4>
+                                <h5 class="font-semibold">Foundations of Generative AI</h5>
+                                <div class="text-sm text-gray-400 space-y-2">
+                                    <p><strong>1.1</strong> Course overview, Intro to Generative AI, AI vs ML vs DL</p>
+                                    <p><strong>1.2</strong> Key terminologies: LLM, Embedding, Prompt Engineering</p>
+                                    <p class="text-blue-300">→ Core concepts with OpenAI SDK, Hugging Face Transformers
+                                        & Ollama</p>
+                                </div>
+                            </div>
+                            <div class="space-y-3 week-container">
+                                <h4 class="font-bold text-lg google-blue">Week 2</h4>
+                                <h5 class="font-semibold">AI Solution Patterns & Prompting</h5>
+                                <div class="text-sm text-gray-400 space-y-2">
+                                    <p><strong>2.1</strong> AI Solution Design Patterns</p>
+                                    <p><strong>2.2</strong> Prompt Engineering - Detailed</p>
+                                    <p class="text-blue-300">→ LangChain, LlamaIndex RAG workflows, zero-shot & few-shot
+                                        prompting</p>
+                                </div>
+                            </div>
+                            <div class="space-y-3 week-container">
+                                <h4 class="font-bold text-lg google-blue">Week 3</h4>
+                                <h5 class="font-semibold">Hands-on Prompting & Recap</h5>
+                                <div class="text-sm text-gray-400 space-y-2">
+                                    <p><strong>3.1</strong> Hands-on: Writing Prompts</p>
+                                    <p><strong>3.2</strong> Module-1 Recap</p>
+                                    <p class="text-blue-300">→ Business prompts (email, summarization), embeddings with
+                                        Sentence-Transformers</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 2 -->
+                <div class="bg-gray-800 rounded-2xl overflow-hidden card-hover opacity-0 animate-fadeInUp delay-200">
+                    <div class="bg-gradient-to-r from-green-600 to-green-700 px-8 py-6">
+                        <h3 class="text-2xl font-bold">Module 2: RAG & Vector Search</h3>
+                        <p class="text-green-100">Weeks 4-6 • Build intelligent knowledge systems</p>
+                    </div>
+                    <div class="p-8">
+                        <div class="grid md:grid-cols-3 gap-8">
+                            <div class="space-y-3 week-container">
+                                <h4 class="font-bold text-lg google-green">Week 4</h4>
+                                <h5 class="font-semibold">Advanced Prompting & Embeddings</h5>
+                                <div class="text-sm text-gray-400 space-y-2">
+                                    <p><strong>4.1</strong> Advanced Prompt Techniques</p>
+                                    <p><strong>4.2</strong> Embedding - Detailed</p>
+                                    <p class="text-green-300">→ LangChain + PydanticAI, Langfuse evaluation,
+                                        Sentence-Transformers</p>
+                                </div>
+                            </div>
+                            <div class="space-y-3 week-container">
+                                <h4 class="font-bold text-lg google-green">Week 5</h4>
+                                <h5 class="font-semibold">Vector Databases & RAG</h5>
+                                <div class="text-sm text-gray-400 space-y-2">
+                                    <p><strong>5.1</strong> Vector Databases</p>
+                                    <p><strong>5.2</strong> RAG Workflow</p>
+                                    <p class="text-green-300">→ Qdrant integration, LlamaIndex knowledge indexing,
+                                        LangChain pipelines</p>
+                                </div>
+                            </div>
+                            <div class="space-y-3 week-container">
+                                <h4 class="font-bold text-lg google-green">Week 6</h4>
+                                <h5 class="font-semibold">QnA Bot & Extensions</h5>
+                                <div class="text-sm text-gray-400 space-y-2">
+                                    <p><strong>6.1</strong> Hands-on: QnA Bot</p>
+                                    <p><strong>6.2</strong> Module 2 Recap & Hands-on</p>
+                                    <p class="text-green-300">→ Multi-document retrieval, Langfuse evaluation, LangChain
+                                        + HF + LlamaIndex</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 3 -->
+                <div class="bg-gray-800 rounded-2xl overflow-hidden card-hover opacity-0 animate-fadeInUp delay-300">
+                    <div class="bg-gradient-to-r from-yellow-600 to-yellow-700 px-8 py-6">
+                        <h3 class="text-2xl font-bold">Module 3: Fine-Tuning & Customization</h3>
+                        <p class="text-yellow-100">Weeks 7-9 • Tailor AI to your specific needs</p>
+                    </div>
+                    <div class="p-8">
+                        <div class="grid md:grid-cols-3 gap-8">
+                            <div class="space-y-3 week-container">
+                                <h4 class="font-bold text-lg google-yellow">Week 7</h4>
+                                <h5 class="font-semibold">Fine-Tuning Foundations</h5>
+                                <div class="text-sm text-gray-400 space-y-2">
+                                    <p><strong>7.1</strong> Fine-Tuning - Detailed</p>
+                                    <p><strong>7.2</strong> Data Preparation</p>
+                                    <p class="text-yellow-300">→ PEFT (LoRA), BitsAndBytes quantization, Hugging Face
+                                        Datasets</p>
+                                </div>
+                            </div>
+                            <div class="space-y-3 week-container">
+                                <h4 class="font-bold text-lg google-yellow">Week 8</h4>
+                                <h5 class="font-semibold">Synthetic Data & Customization</h5>
+                                <div class="text-sm text-gray-400 space-y-2">
+                                    <p><strong>8.1</strong> Synthetic Data Creation</p>
+                                    <p><strong>8.2</strong> Customizing Models</p>
+                                    <p class="text-yellow-300">→ LangChain + CrewAI data generation, Ollama-hosted LLMs
+                                        adaptation</p>
+                                </div>
+                            </div>
+                            <div class="space-y-3 week-container">
+                                <h4 class="font-bold text-lg google-yellow">Week 9</h4>
+                                <h5 class="font-semibold">Applied Fine-Tuning</h5>
+                                <div class="text-sm text-gray-400 space-y-2">
+                                    <p><strong>9.1</strong> Module 3 Recap & Hands-on</p>
+                                    <p><strong>9.2</strong> Project Extension</p>
+                                    <p class="text-yellow-300">→ Hugging Face Trainer & PEFT, fine-tuned QnA bot
+                                        enhancement</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 4 -->
+                <div class="bg-gray-800 rounded-2xl overflow-hidden card-hover opacity-0 animate-fadeInUp delay-400">
+                    <div class="bg-gradient-to-r from-red-600 to-red-700 px-8 py-6">
+                        <h3 class="text-2xl font-bold">Module 4: Agents & Deployment</h3>
+                        <p class="text-red-100">Weeks 10-12 • Build autonomous AI systems</p>
+                    </div>
+                    <div class="p-8">
+                        <div class="grid md:grid-cols-3 gap-8">
+                            <div class="space-y-3 week-container">
+                                <h4 class="font-bold text-lg google-red">Week 10</h4>
+                                <h5 class="font-semibold">AI Agent Architecture</h5>
+                                <div class="text-sm text-gray-400 space-y-2">
+                                    <p><strong>10.1</strong> AI Agent Architecture</p>
+                                    <p><strong>10.2</strong> Agent with RAG</p>
+                                    <p class="text-red-300">→ CrewAI + LangChain Agents, OpenAI Agent SDK integration
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="space-y-3 week-container">
+                                <h4 class="font-bold text-lg google-red">Week 11</h4>
+                                <h5 class="font-semibold">Tools & Deployment</h5>
+                                <div class="text-sm text-gray-400 space-y-2">
+                                    <p><strong>11.1</strong> Tool Integration</p>
+                                    <p><strong>11.2</strong> Deployment Techniques</p>
+                                    <p class="text-red-300">→ Agno, LangChain tools, CrewAI toolchains, FastAPI + Docker
+                                        + Ollama</p>
+                                </div>
+                            </div>
+                            <div class="space-y-3 week-container">
+                                <h4 class="font-bold text-lg google-red">Week 12</h4>
+                                <h5 class="font-semibold">Capstone Build & Showcase</h5>
+                                <div class="text-sm text-gray-400 space-y-2">
+                                    <p><strong>12.1</strong> Capstone Build</p>
+                                    <p><strong>12.2</strong> Final Recap, Testing & Hands-on</p>
+                                    <p class="text-red-300">→ Full AI Agent: LangChain + CrewAI + LlamaIndex + Qdrant +
+                                        Langfuse</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 opacity-0 animate-fadeInUp">
+                <span class="google-yellow">Frequently Asked</span> <span class="google-blue">Questions</span>
+            </h2>
+
+            <div class="max-w-4xl mx-auto space-y-6">
+                <!-- Q1 -->
+                <div class="bg-gray-700 rounded-xl overflow-hidden card-hover opacity-0 animate-fadeInUp delay-100">
+                    <div class="faq-item">
+                        <button
+                            class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-gray-600 transition-colors">
+                            <span class="font-semibold text-lg pr-4">Q1. Do I need prior AI/ML experience for this
+                                course?</span>
+                            <i
+                                class="fas fa-chevron-down text-blue-400 transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="p-6 pt-0 text-gray-300">
+                                Not strictly, but familiarity with <span
+                                    class="text-yellow-400 font-medium">Python</span> and basic ML concepts will help.
+                                We'll cover Generative AI foundations before diving into advanced topics.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="bg-gray-700 rounded-xl overflow-hidden card-hover opacity-0 animate-fadeInUp delay-200">
+                    <div class="faq-item">
+                        <button
+                            class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-gray-600 transition-colors">
+                            <span class="font-semibold text-lg pr-4">Q2. Which programming languages and tools will we
+                                use?</span>
+                            <i
+                                class="fas fa-chevron-down text-blue-400 transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="p-6 pt-0 text-gray-300">
+                                The course is entirely in <span class="text-yellow-400 font-medium">Python
+                                    (3.10+)</span>, with tools like <span class="text-green-400">LangChain</span>, <span
+                                    class="text-blue-400">CrewAI</span>, <span
+                                    class="text-yellow-400">LlamaIndex</span>, <span class="text-orange-400">Hugging
+                                    Face Transformers</span>, <span class="text-purple-400">Qdrant</span>, <span
+                                    class="text-cyan-400">Ollama</span>, <span class="text-blue-400">OpenAI Agent
+                                    SDK</span>, <span class="text-pink-400">Langfuse</span>, and deployment with <span
+                                    class="text-green-400">FastAPI + Docker</span>.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="bg-gray-700 rounded-xl overflow-hidden card-hover opacity-0 animate-fadeInUp delay-300">
+                    <div class="faq-item">
+                        <button
+                            class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-gray-600 transition-colors">
+                            <span class="font-semibold text-lg pr-4">Q3. Is GPU access required for this course?</span>
+                            <i
+                                class="fas fa-chevron-down text-blue-400 transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="p-6 pt-0 text-gray-300">
+                                A GPU is recommended for fine-tuning and large model experiments. However, most
+                                exercises can be run on CPU or free GPU platforms like <span
+                                    class="text-blue-400 font-medium">Google Colab</span>. For production, you'll learn
+                                to integrate APIs (<span class="text-green-400">OpenAI</span>, <span
+                                    class="text-orange-400">Hugging Face</span>, <span
+                                    class="text-cyan-400">Ollama</span>).
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="bg-gray-700 rounded-xl overflow-hidden card-hover opacity-0 animate-fadeInUp delay-400">
+                    <div class="faq-item">
+                        <button
+                            class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-gray-600 transition-colors">
+                            <span class="font-semibold text-lg pr-4">Q4. What projects will I build?</span>
+                            <i
+                                class="fas fa-chevron-down text-blue-400 transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="p-6 pt-0 text-gray-300">
+                                <ul class="space-y-2">
+                                    <li class="flex items-center"><i
+                                            class="fas fa-check-circle text-green-400 mr-3"></i>A prompting library for
+                                        business use cases</li>
+                                    <li class="flex items-center"><i
+                                            class="fas fa-check-circle text-green-400 mr-3"></i>A QnA bot using RAG
+                                        (<span class="text-green-400">LangChain</span> + <span
+                                            class="text-purple-400">Qdrant</span> + <span
+                                            class="text-orange-400">Hugging Face</span>)</li>
+                                    <li class="flex items-center"><i
+                                            class="fas fa-check-circle text-green-400 mr-3"></i>Fine-tuned models for
+                                        domain tasks</li>
+                                    <li class="flex items-center"><i
+                                            class="fas fa-check-circle text-green-400 mr-3"></i>A multi-agent AI system
+                                        with memory, RAG, and tool integration</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="bg-gray-700 rounded-xl overflow-hidden card-hover opacity-0 animate-fadeInUp delay-500">
+                    <div class="faq-item">
+                        <button
+                            class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-gray-600 transition-colors">
+                            <span class="font-semibold text-lg pr-4">Q5. How is this course different from other AI
+                                courses?</span>
+                            <i
+                                class="fas fa-chevron-down text-blue-400 transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="p-6 pt-0 text-gray-300">
+                                <ul class="space-y-2">
+                                    <li class="flex items-center"><i
+                                            class="fas fa-star text-yellow-400 mr-3"></i>Focused on <span
+                                            class="text-blue-400 font-medium">hands-on implementation</span> (not just
+                                        theory)</li>
+                                    <li class="flex items-center"><i class="fas fa-star text-yellow-400 mr-3"></i>Covers
+                                        modern AI agent frameworks (<span class="text-blue-400">CrewAI</span>, <span
+                                            class="text-cyan-400">OpenAI Agent SDK</span>, <span
+                                            class="text-pink-400">Langfuse monitoring</span>)</li>
+                                    <li class="flex items-center"><i
+                                            class="fas fa-star text-yellow-400 mr-3"></i>Step-by-step <span
+                                            class="text-green-400 font-medium">capstone project</span> that integrates
+                                        multiple tools</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q6 -->
+                <div class="bg-gray-700 rounded-xl overflow-hidden card-hover opacity-0 animate-fadeInUp delay-100">
+                    <div class="faq-item">
+                        <button
+                            class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-gray-600 transition-colors">
+                            <span class="font-semibold text-lg pr-4">Q6. What if I can't install some tools
+                                locally?</span>
+                            <i
+                                class="fas fa-chevron-down text-blue-400 transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="p-6 pt-0 text-gray-300">
+                                We provide <span class="text-cyan-400 font-medium">Docker setups</span> and
+                                cloud-friendly alternatives (<span class="text-blue-400">Colab</span>, <span
+                                    class="text-green-400">VS Code remote</span>) so you can run all projects regardless
+                                of local environment.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q7 -->
+                <div class="bg-gray-700 rounded-xl overflow-hidden card-hover opacity-0 animate-fadeInUp delay-200">
+                    <div class="faq-item">
+                        <button
+                            class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-gray-600 transition-colors">
+                            <span class="font-semibold text-lg pr-4">Q7. Will we cover both cloud APIs and local
+                                models?</span>
+                            <i
+                                class="fas fa-chevron-down text-blue-400 transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="p-6 pt-0 text-gray-300">
+                                Yes. You'll learn to use <span class="text-green-400 font-medium">OpenAI APIs</span> and
+                                <span class="text-cyan-400 font-medium">Ollama</span> for running models locally (e.g.,
+                                Llama-3). This ensures you can build both <span
+                                    class="text-blue-400">cloud-native</span> and <span
+                                    class="text-purple-400">self-hosted</span> AI systems.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q8 -->
+                <div class="bg-gray-700 rounded-xl overflow-hidden card-hover opacity-0 animate-fadeInUp delay-300">
+                    <div class="faq-item">
+                        <button
+                            class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-gray-600 transition-colors">
+                            <span class="font-semibold text-lg pr-4">Q8. How much time per week should I expect to
+                                spend?</span>
+                            <i
+                                class="fas fa-chevron-down text-blue-400 transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="p-6 pt-0 text-gray-300">
+                                On average, <span class="text-yellow-400 font-medium">6–8 hours/week</span> split
+                                between lectures, reading, coding exercises, and project work.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q9 -->
+                <div class="bg-gray-700 rounded-xl overflow-hidden card-hover opacity-0 animate-fadeInUp delay-400">
+                    <div class="faq-item">
+                        <button
+                            class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-gray-600 transition-colors">
+                            <span class="font-semibold text-lg pr-4">Q9. Will I get a certificate at the end?</span>
+                            <i
+                                class="fas fa-chevron-down text-blue-400 transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="p-6 pt-0 text-gray-300">
+                                Yes. On completing the capstone project showcase, you'll receive a <span
+                                    class="text-green-400 font-medium">Certificate of Completion</span> recognizing your
+                                Generative AI mastery.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q10 -->
+                <div class="bg-gray-700 rounded-xl overflow-hidden card-hover opacity-0 animate-fadeInUp delay-500">
+                    <div class="faq-item">
+                        <button
+                            class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-gray-600 transition-colors">
+                            <span class="font-semibold text-lg pr-4">Q10. What's the final outcome of this
+                                course?</span>
+                            <i
+                                class="fas fa-chevron-down text-blue-400 transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="p-6 pt-0 text-gray-300">
+                                <p class="mb-3">By Week 12, you'll have built a <span
+                                        class="text-green-400 font-medium">production-ready AI Agent system</span> with:
+                                </p>
+                                <ul class="space-y-2">
+                                    <li class="flex items-center"><i
+                                            class="fas fa-brain text-purple-400 mr-3"></i>Memory</li>
+                                    <li class="flex items-center"><i class="fas fa-search text-blue-400 mr-3"></i>RAG
+                                        (knowledge-grounded answers)</li>
+                                    <li class="flex items-center"><i
+                                            class="fas fa-users text-green-400 mr-3"></i>Multi-agent orchestration</li>
+                                    <li class="flex items-center"><i class="fas fa-tools text-yellow-400 mr-3"></i>Tool
+                                        integration (APIs, external systems)</li>
+                                    <li class="flex items-center"><i
+                                            class="fas fa-chart-line text-pink-400 mr-3"></i>Monitoring with <span
+                                            class="text-pink-400">Langfuse</span></li>
+                                    <li class="flex items-center"><i class="fas fa-rocket text-cyan-400 mr-3"></i>All
+                                        deployed in <span class="text-cyan-400">Docker/FastAPI</span> for real-world
+                                        usage</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructor Section -->
+    <section id="instructor" class="py-20 night-sky">
+        <div class="moon" style="top: 60px; right: 15%;"></div>
+        <div class="comet" style="top: 70%; right: 0; animation-delay: 8s;"></div>
+        <div class="meteor" style="top: 30%; right: 60%; animation-delay: 3s;"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-4xl font-bold text-center mb-16 opacity-0 animate-fadeInUp">
+                <span class="google-green">Expert</span> <span class="google-blue">Instruction</span>
+            </h2>
+
+            <div class="max-w-5xl mx-auto">
+                <div class="bg-gray-700 rounded-2xl p-10 card-hover opacity-0 animate-fadeInUp delay-200">
+                    <div class="flex flex-col lg:flex-row items-center gap-10">
+                        <div class="flex-shrink-0">
+                            <div class="w-40 h-40 rounded-full overflow-hidden shadow-2xl ring-4 ring-blue-400/30">
+                                <img src="img/srisanth.jpg" alt="Sri Santh M - AI Technology Architect"
+                                    class="w-full h-full object-cover"
+                                    onerror="this.src=''; this.alt='Profile image failed to load'; this.style.display='none';">
+                            </div>
+                        </div>
+                        <div class="flex-1 text-center lg:text-left">
+                            <h3 class="text-3xl font-bold mb-6 gradient-text">SRI SANTH M</h3>
+                            <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                                AI Technology Architect & Educator with a passion for democratizing artificial
+                                intelligence.
+                                As the founder of innovative AI solutions including Hipocap (workflow automation
+                                platform) and
+                                GlideIN (LinkedIn automation suite), I bring real-world expertise to the classroom.
+                            </p>
+                            <p class="text-gray-300 text-lg leading-relaxed">
+                                With over 300 students successfully trained in AI and technology, I specialize in making
+                                complex AI concepts accessible and immediately applicable to real business challenges.
+                                My teaching approach combines theoretical foundations with hands-on project experience.
+                            </p>
+                            <div class="flex flex-wrap gap-4 mt-6 justify-center lg:justify-start">
+                                <span class="bg-blue-600 px-4 py-2 rounded-full text-sm">AI Architecture</span>
+                                <span class="bg-green-600 px-4 py-2 rounded-full text-sm">300+ Students Trained</span>
+                                <span class="bg-yellow-600 px-4 py-2 rounded-full text-sm">Product Development</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Instructor's AI-Powered Projects -->
+                <div class="mt-16 opacity-0 animate-fadeInUp delay-300">
+                    <h3 class="text-2xl font-bold mb-8 google-yellow text-center"><i
+                            class="fas fa-rocket mr-3"></i>AI-Powered Applications Built by Instructor</h3>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-gray-800 rounded-xl p-8 card-hover">
+                            <div class="flex items-center mb-4">
+                                <div
+                                    class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg mr-4 flex items-center justify-center">
+                                    <i class="fas fa-globe text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Hipocap</h4>
+                                    <p class="text-gray-400 text-sm">AI Workflow Automation Platform</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 mb-4">Intelligent automation platform that connects different
+                                applications and streamlines complex workflows using AI-driven decision making.</p>
+                            <a href="https://www.hipocap.com/" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex items-center text-blue-400 hover:text-blue-300">
+                                <i class="fas fa-external-link-alt mr-2"></i>Visit Platform
+                            </a>
+                        </div>
+                        <div class="bg-gray-800 rounded-xl p-8 card-hover">
+                            <div class="flex items-center mb-4">
+                                <div
+                                    class="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg mr-4 flex items-center justify-center">
+                                    <i class="fas fa-globe text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg">GlideIN</h4>
+                                    <p class="text-gray-400 text-sm">LinkedIn Automation Suite</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 mb-4">Advanced LinkedIn automation tool powered by AI for
+                                intelligent networking, lead generation, and professional relationship management.</p>
+                            <a href="https://glidein.app" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex items-center text-blue-400 hover:text-blue-300">
+                                <i class="fas fa-external-link-alt mr-2"></i>Visit Platform
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 night-sky">
+        <div class="moon" style="top: 80px; left: 12%;"></div>
+        <div class="comet" style="top: 40%; left: 0; animation-delay: 10s;"></div>
+        <div class="meteor" style="top: 60%; left: 80%; animation-delay: 5s;"></div>
+        <div class="meteor" style="top: 25%; left: 40%; animation-delay: 7s;"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-4xl font-bold text-center mb-16 opacity-0 animate-fadeInUp">
+                <span class="google-red">Hi5Technet</span> <span class="google-yellow">Portfolio</span>
+            </h2>
+
+            <div class="max-w-7xl mx-auto">
+                <!-- Websites -->
+                <div class="mb-16 opacity-0 animate-fadeInUp delay-100">
+                    <h3 class="text-2xl font-bold mb-8 google-blue"><i class="fas fa-globe mr-3"></i>Websites</h3>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bg-gray-800 rounded-xl p-6 card-hover">
+                            <div
+                                class="h-32 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg mb-4 flex items-center justify-center">
+                                <img src="img/nextgenwebsite1.png" alt="Best Direct Finance thumbnail"
+                                    class="object-cover w-full h-full" />
+                            </div>
+                            <h4 class="font-bold mb-2">Best Direct Finance</h4>
+                            <p class="text-gray-400 text-sm">Financial services website</p>
+                        </div>
+                        <div class="bg-gray-800 rounded-xl p-6 card-hover">
+                            <div
+                                class="h-32 bg-gradient-to-br from-green-500 to-green-700 rounded-lg mb-4 flex items-center justify-center">
+                                <img src="img/nextgenwebsite3.png" alt="My New Version LLC thumbnail"
+                                    class="object-cover w-full h-full" />
+                            </div>
+                            <h4 class="font-bold mb-2">My New Version LLC</h4>
+                            <p class="text-gray-400 text-sm">Business consulting website</p>
+                        </div>
+                        <div class="bg-gray-800 rounded-xl p-6 card-hover">
+                            <div
+                                class="h-32 bg-gradient-to-br from-purple-500 to-purple-700 rounded-lg mb-4 flex items-center justify-center">
+                                <img src="img/nextgenwebsite2.png" alt="Tekstag thumbnail"
+                                    class="object-cover w-full h-full" />
+                            </div>
+                            <h4 class="font-bold mb-2">Tekstag</h4>
+                            <p class="text-gray-400 text-sm">Technology solutions platform</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Apps -->
+                <div class="mb-16 opacity-0 animate-fadeInUp delay-200">
+                    <h3 class="text-2xl font-bold mb-8 google-green"><i class="fas fa-mobile-alt mr-3"></i>Mobile
+                        Applications</h3>
+                    <div class="grid md:grid-cols-4 gap-6">
+                        <div class="bg-gray-800 rounded-xl p-4 card-hover text-center">
+                            <a href="https://play.google.com/store/apps/details?id=dev.rcloud.elimwellington.twa"
+                                target="_blank"
+                                class="portfolio-item block bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                                <div
+                                    class="h-40 bg-gradient-to-r from-blue-600 to-blue-400 flex items-center justify-center">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                                        alt="Get it on Google Play" class="h-10">
+                                </div>
+                                <div class="p-4">
+                                    <h4 class="text-lg font-semibold mb-1">ELIM (WELLINGTON)</h4>
+                                    <p class="text-gray-400 text-sm">Android App</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="bg-gray-800 rounded-xl p-4 card-hover text-center">
+                            <a href="https://play.google.com/store/apps/details?id=app.web.elim_hamilton.twa"
+                                target="_blank"
+                                class="portfolio-item block bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                                <div
+                                    class="h-40 bg-gradient-to-r from-blue-600 to-blue-400 flex items-center justify-center">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                                        alt="Get it on Google Play" class="h-10">
+                                </div>
+                                <div class="p-4">
+                                    <h4 class="text-lg font-semibold mb-1">ELIM (HAMILTON)</h4>
+                                    <p class="text-gray-400 text-sm">Android App</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="bg-gray-800 rounded-xl p-4 card-hover text-center">
+                            <a href="https://play.google.com/store/apps/details?id=com.sjctc.chitfunds" target="_blank"
+                                class="portfolio-item block bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                                <div
+                                    class="h-40 bg-gradient-to-r from-blue-600 to-blue-400 flex items-center justify-center">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                                        alt="Get it on Google Play" class="h-10">
+                                </div>
+                                <div class="p-4">
+                                    <h4 class="text-lg font-semibold mb-1">JAYANATHAN CHITS</h4>
+                                    <p class="text-gray-400 text-sm">Android App</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="bg-gray-800 rounded-xl p-4 card-hover text-center">
+                            <a href="https://play.google.com/store/apps/details?id=com.yfpartner" target="_blank"
+                                class="portfolio-item block bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                                <div
+                                    class="h-40 bg-gradient-to-r from-blue-600 to-blue-400 flex items-center justify-center">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                                        alt="Get it on Google Play" class="h-10">
+                                </div>
+                                <div class="p-4">
+                                    <h4 class="text-lg font-semibold mb-1">YF PARTNER</h4>
+                                    <p class="text-gray-400 text-sm">Android App</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-32 night-sky relative overflow-hidden">
+        <div class="moon" style="top: 50px; right: 20%;"></div>
+        <div class="comet" style="top: 60%; right: 0; animation-delay: 12s;"></div>
+        <div class="meteor" style="top: 40%; right: 70%; animation-delay: 4s;"></div>
+        <div class="meteor" style="top: 75%; right: 25%; animation-delay: 9s;"></div>
+        <div class="floating-stars">
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+        </div>
+
+        <!-- Additional decorative elements -->
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-blue-900/20 to-transparent"></div>
+        <div class="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-10 right-10 w-40 h-40 bg-blue-300/20 rounded-full blur-3xl"></div>
+
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-6xl md:text-7xl font-bold mb-6 opacity-0 animate-fadeInUp leading-tight">
+                    Transform Your Career
+                    <span class="block bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">
+                        with AI
+                    </span>
+                </h2>
+                <p class="text-2xl mb-4 opacity-0 animate-fadeInUp delay-200 text-blue-50 font-medium">
+                    Join 300+ professionals who've mastered Generative AI
+                </p>
+                <p class="text-lg mb-16 opacity-0 animate-fadeInUp delay-300 text-blue-100">
+                    Build production-ready AI systems • Master cutting-edge techniques • Launch your AI career
+                </p>
+
+                <div
+                    class="flex flex-col sm:flex-row gap-6 justify-center items-center opacity-0 animate-fadeInUp delay-400">
+                    <button class="cta-button px-12 py-5 rounded-2xl text-xl font-bold shadow-2xl">
+                        <i class="fas fa-rocket mr-3"></i>
+                        Secure Your Spot - October 5, 2025
+                    </button>
+                    <div class="text-blue-100 text-sm">
+                        <div class="flex items-center justify-center gap-2 mb-1">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span class="font-semibold">12 weeks • Live sessions • Hands-on projects</span>
+                        </div>
+                        <div class="flex items-center justify-center gap-2">
+                            <i class="fas fa-users"></i>
+                            <span>Limited to 25 students for personalized attention</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-700 py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col items-center text-center">
+                <div class="flex items-center space-x-4 mb-6">
+                    <div class="gemini-logo animate-gemini">
+                        <div class="gemini-star star-1"></div>
+                        <div class="gemini-star star-2"></div>
+                        <div class="gemini-star star-3"></div>
+                        <div class="gemini-star star-4"></div>
+                    </div>
+                    <span class="text-2xl font-bold gradient-text">Generative AI Mastery</span>
+                </div>
+                <p class="text-gray-400 text-lg mb-4">
+                    2025 Silambu x Hi5Technet - Generative AI Mastery
+                </p>
+                <p class="google-blue font-semibold">
+                    Come join us - Starts October 5 2025, 10:30am EST
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.opacity-0').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // FAQ functionality
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', function () {
+                const faqItem = this.closest('.faq-item');
+                const answer = faqItem.querySelector('.faq-answer');
+                const icon = this.querySelector('i');
+                const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) {
+                        const otherAnswer = item.querySelector('.faq-answer');
+                        const otherIcon = item.querySelector('.faq-question i');
+                        otherAnswer.style.maxHeight = '0px';
+                        otherIcon.style.transform = 'rotate(0deg)';
+                    }
+                });
+
+                // Toggle current FAQ item
+                if (isOpen) {
+                    answer.style.maxHeight = '0px';
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // Button click handlers
+        document.querySelectorAll('button:not(.faq-question)').forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Create ripple effect
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    background: rgba(255, 255, 255, 0.3);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: ripple 0.6s linear;
+                    pointer-events: none;
+                `;
+
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+
+                setTimeout(() => ripple.remove(), 600);
+
+                if (this.textContent.includes('Enroll') || this.textContent.includes('Start') || this.textContent.includes('Secure')) {
+                    // alert('🎯 Ready to master AI? Course enrollment opens soon!\n\n📅 Start Date: October 5, 2025\n⏰ Time: 10:30am EST\n\nStay tuned for registration details!');
+                } else if (this.textContent.includes('Curriculum')) {
+                    document.querySelector('#curriculum').scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Add CSS for ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'988ae3c056864da5',t:'MTc1OTQ3ODI1Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
+</html>
